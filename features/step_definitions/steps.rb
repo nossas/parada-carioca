@@ -1,5 +1,4 @@
 Given /^there is an event called "(.*?)" with (\d+) attendees$/ do |arg1, arg2|
-  Event.make!(:activity_id => Activity.make!(:name => arg1).id).attendees << arg2.to_i.times
   activity = Activity.make! :name => arg1
   event = Event.make! :activity_id => activity.id
   arg2.to_i.times { event.attendees << User.make! }
