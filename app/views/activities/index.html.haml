@@ -1,2 +1,15 @@
-- Event.by_popularity.each do |event|
-  .activity= event.activity.name
+%section.top_activities
+  .row
+    %h2
+      =image_tag "paradas-populares-icon.svg"
+      As Paradas Top
+    - Event.by_popularity.limit(3).each do |event|
+      .activity
+        = image_tag event.activity.image
+        .activity_info
+          .activity_user_and_name
+            = image_tag event.activity.guide.avatar
+            %span.activity_name= event.activity.name
+          .activity_address_and_price
+            .activity_address.icon-location= truncate event.activity.address, :length => 25
+            .activity_price= number_to_currency event.activity.price

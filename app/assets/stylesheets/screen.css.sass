@@ -1,7 +1,38 @@
-/*
-  Welcome to Compass.
-  In this file you should write your main styles. (or centralize your imports)
-  Import this file using the following HTML or equivalent:
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+$columnal-grid-width: 980px !default
 
 @import compass/reset
+@import columnal/grid
+@import icomoon
+
+section
+  +grid-container
+
+.row
+  +grid-row
+
+.activity
+  +grid(4)
+  &:last-child
+    +last
+
+section.top-activities h2
+  +grid(12)
+
+body
+  font-family: Verdana, Verdana, Geneva, sans-serif
+  line-height: normal
+  background: #f8f8f8
+
+h2
+  color: gray
+  font-size: 1.5em
+  margin-bottom: 1em
+  img
+    width: 35px
+    vertical-align: middle
+
+img
+  margin: 0
+  +border-radius(0)
+
+@import activities

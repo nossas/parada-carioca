@@ -8,10 +8,13 @@ gem 'rails', '3.2.8'
 gem 'pg'
 gem 'therubyracer'
 gem "less-rails"
-gem "twitter-bootstrap-rails"
 gem "haml-rails"
 gem 'inherited_resources'
 gem 'sass-rails',   '~> 3.2.3'
+gem "compass-columnal-plugin"
+gem 'carrierwave'
+gem 'mini_magick'
+gem "fog", "~> 1.3.1"
 
 # Gems used only for assets and not required
 # in production environments by default.

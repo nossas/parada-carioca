@@ -1,3 +1,29 @@
-// Place all the styles related to the activities controller here.
-// They will automatically be included in application.css.
-// You can use Sass here: http://sass-lang.com/
+section.top_activities
+  .activity
+    img
+      float: left
+    .activity_info
+      background: white
+      margin: 0 1px 2px 1px
+      overflow: hidden
+      padding: .5em
+      +box-shadow(lightgray 0 1px 2px)
+      .activity_user_and_name
+        color: gray
+        overflow: hidden
+        border-bottom: 1px solid lighten(lightgray, 10%)
+        padding-bottom: .5em
+        margin-bottom: .5em
+        img
+          margin: 0 .5em .5em 0
+      .activity_address_and_price
+        line-height: 20px
+        .activity_address
+          float: left
+          color: gray
+          font-size: .8em
+          &:before
+            color: #df4b99
+        .activity_price
+          color: #21bde6
+          float: right
