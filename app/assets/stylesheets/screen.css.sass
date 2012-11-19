@@ -3,6 +3,7 @@ $columnal-grid-width: 980px !default
 @import compass/reset
 @import columnal/grid
 @import icomoon
+@import fonts
 
 section
   +grid-container
@@ -19,7 +20,7 @@ section.top-activities h2
   +grid(12)
 
 body
-  font-family: Verdana, Verdana, Geneva, sans-serif
+  font-family: "Proxima Nova", sans-serif
   line-height: normal
   background: #f8f8f8
 
@@ -27,9 +28,12 @@ h2
   color: gray
   font-size: 1.5em
   margin-bottom: 1em
+  line-height: 42px
   img
     width: 35px
-    vertical-align: middle
+    margin-right: .25em
+    float: left
+    +opacity(.3)
 
 img
   margin: 0
