@@ -1,5 +1,6 @@
 ParadaCarioca::Application.routes.draw do
   root :to => 'activities#index'
+  match '/auth/:provider/callback', :to => 'sessions#create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

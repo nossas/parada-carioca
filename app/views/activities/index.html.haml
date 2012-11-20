@@ -1,8 +1,7 @@
 %section.top_activities
   .row
-    %h2
-      =image_tag "paradas-populares-icon.svg"
-      As Paradas Top
+    %h2 #{image_tag "paradas-populares-icon.svg"} As Paradas Top
+  .row
     - Event.by_popularity.limit(3).each do |event|
       .activity
         = image_tag event.activity.image
