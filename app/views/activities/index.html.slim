@@ -21,6 +21,6 @@ section.top_lists
     .most_recent_events
       h3.icon-new-event= t 'activities.recent'
       ol.events
-        - @recent_events.each_with_index do |event|
+        - @recent_events.each_with_index do |event, index|
           li.event
-            | #{content_tag :span, i + 1}#{truncate(event.activity.name, :length => 25)}
+            | #{content_tag :span, index + 1}#{truncate(event.activity.name, :length => 25)}
