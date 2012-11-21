@@ -1,0 +1,18 @@
+!!!
+%head
+  %title Parada Carioca
+  %link{:href => image_path("favicon.png"), :rel => "shortcut icon"}
+  = stylesheet_link_tag "screen"
+  = javascript_include_tag "application"
+%body
+  %header
+    .row
+      .meurio_and_login
+        = link_to image_tag("meurio.jpeg"), "http://meurio.org.br/"
+        - if current_user.nil?
+          .login Entre com a sua conta do #{link_to "", "/auth/facebook", :class => "icon-facebook-3", :id => "auth_facebook"}
+        - else
+          .user_name_and_avatar
+            = current_user.name
+            = image_tag current_user.avatar
+  =yield

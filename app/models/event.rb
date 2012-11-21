@@ -7,5 +7,6 @@ class Event < ActiveRecord::Base
   
   validates :activity, :date, :presence => true
   
-  scope :by_popularity, order("(SELECT count(*) FROM participations WHERE participations.event_id = events.id) DESC")
+  scope :by_popularity,   order("(SELECT count(*) FROM participations WHERE participations.event_id = events.id) DESC")
+  scope :by_most_recent,  order("created_at DESC")
 end
