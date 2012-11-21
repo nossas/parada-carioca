@@ -1,9 +1,11 @@
 section.activity
   .row
-    header
-      h1= @event.activity.name
-      span.icon-location= @event.activity.address
-
+    article.left
+      header
+        h1= @event.activity.name
+        span.icon-location= @event.activity.address
+    aside.right
+      = @event.activity.price
   .row
     article.left role='activity'
       .image

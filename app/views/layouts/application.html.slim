@@ -5,6 +5,7 @@ html
     /[if IE]                                                                                                                                              
       = javascript_include_tag "http://html5shiv.googlecode.com/svn/trunk/html5.js"
     = stylesheet_link_tag :application
+    = favicon_link_tag 'favicon.png', type: 'image/png'
   body class=controller.controller_name id=controller.action_name
     header.login
       = render 'layouts/login'
