@@ -4,7 +4,7 @@ Given /^there is an event called "(.*?)" with (\d+) attendees$/ do |arg1, arg2|
 end
 
 When(/^I go to "(.*?)"$/)                       { |arg1| visit path(arg1) }
-Then(/^the first activity should be "(.*?)"$/)  { |arg1| page.should have_css('div.activity:first-child', :text => arg1) }
+Then(/^the first activity should be "(.*?)"$/)  { |arg1| page.should have_css('ol.activities li:first-child', :text => arg1) }
 Then(/^show me the page$/)                      { save_and_open_page }
 Then(/^I should see "(.*?)"$/)                  { |arg1| page.should have_content(arg1) }
 When(/^I click "(.*?)"$/)                       { |arg1| click_link link(arg1) }

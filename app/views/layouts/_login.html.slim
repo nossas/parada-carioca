@@ -1,0 +1,11 @@
+.row
+  .meurio_and_login
+    = link_to image_tag("meurio.jpeg"), "http://meurio.org.br/"
+    - if current_user.nil?
+      .login 
+        | Entre com a sua conta do #{link_to "", "/auth/facebook", :class => "icon-facebook", :id => "auth_facebook"}
+    - else
+      .user_name_and_avatar.user_panel
+        = current_user.name
+        = image_tag current_user.avatar
+

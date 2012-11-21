@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title= t 'site.title'
+    /[if IE]                                                                                                                                              
+      = javascript_include_tag "http://html5shiv.googlecode.com/svn/trunk/html5.js"
+    = stylesheet_link_tag :application
+  body class=controller.controller_name id=controller.action_name
+    header
+      = render 'layouts/login'
+    .content role="main"
+      = yield
+    footer
+    = javascript_include_tag :application

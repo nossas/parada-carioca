@@ -1,0 +1,15 @@
+section.top_activities
+  .row
+    h2.icon-popular-events= t 'activities.top' 
+  .row
+    ol.activities
+      - @top_events.each do |event|
+        li.activity
+          .image= image_tag event.activity.image
+          .about
+            .user_name
+              = image_tag event.activity.guide.avatar
+              span.name= event.activity.name
+          .info
+            .address.icon-location= truncate(event.activity.address, length: 25)
+            .price= number_to_currency(event.activity.price)

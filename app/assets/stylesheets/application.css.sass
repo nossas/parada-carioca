@@ -1,0 +1,77 @@
+// Default importings
+$columnal-grid-width: 940px !default
+@import compass/reset
+@import columnal/grid
+@import icomoon
+@import fonts
+
+// Import all page styles
+@import activities
+
+
+// General rules
+section, header
+  +grid-container
+
+.row
+  +grid-row
+
+.activity
+  +grid(4)
+  &:last-child
+    +last
+
+section.top_activities h2, .meurio_and_login
+  +grid(12)
+  +last
+
+header
+  background: white
+  padding-top: .25em
+  padding-bottom: .25em
+  line-height: 40px
+  color: lighten(gray, 10%)
+  font-size: .8em
+  margin-bottom: 2em
+  +box-shadow(lighten(gray, 15%) 0 0 20px)
+  img
+    float: left
+    margin-left: -4px
+  .login
+    float: right
+    a
+      display: inline-block
+      text-decoration: none
+      font-size: 1.5em
+      color: #4b64a6
+      vertical-align: middle
+      margin-left: .25em
+  .user_name_and_avatar
+    text-align: right
+    font-weight: bold
+    img
+      width: 30px
+      float: right
+      margin-top: 5px
+      margin-left: 1em
+
+body
+  font-family: "Proxima Nova", sans-serif
+  line-height: normal
+  background: #f8f8f8
+
+h2
+  color: gray
+  font-size: 1.5em
+  margin-bottom: 1em
+  line-height: 42px
+  img
+    width: 35px
+    margin-right: .25em
+    float: left
+    +opacity(.3)
+
+img
+  margin: 0
+  +border-radius(0)
+
