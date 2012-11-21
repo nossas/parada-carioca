@@ -9,7 +9,7 @@ def link link
 end
 
 def component component
-  return ".user_panel" if component == "the user panel"
-  return "#auth_facebook" if component == "the Facebook login"
+  return ".user_name_and_avatar"  if component == "the user panel"
+  return "#auth_facebook"         if component == "the Facebook login"
   raise "I don't know what '#{component}' means"
 end
