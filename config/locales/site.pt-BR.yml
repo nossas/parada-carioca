@@ -1,6 +1,7 @@
 pt-BR:
   site:
     title: "Parada Carioca"
+    login_html: "Entre com a sua conta do <a href='%{link}' class='icon-facebook' id='auth_facebook'>%{text}</a>"
   activities:
     top: "As Paradas Top"
     recent: "Novas Paradas"

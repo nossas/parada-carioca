@@ -1,9 +1,8 @@
 .row
   .meurio_and_login
-    = link_to image_tag("meurio.jpeg"), "http://meurio.org.br/"
+    = link_to image_tag "meurio.jpeg", "http://meurio.org.br/"
     - if current_user.nil?
-      .login 
-        | Entre com a sua conta do #{link_to "", "/auth/facebook", :class => "icon-facebook", :id => "auth_facebook"}
+      .login= t 'site.login_html', link: facebook_auth_path, text: nil
     - else
       .user_name_and_avatar.user_panel
         = current_user.name
