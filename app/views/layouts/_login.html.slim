@@ -1,6 +1,6 @@
 .row
   .meurio_and_login
-    = link_to image_tag "meurio.jpeg", "http://meurio.org.br/"
+    = link_to image_tag("meurio.jpeg"), "http://meurio.org.br/"
     - if current_user.nil?
       .login= t 'site.login_html', link: facebook_auth_path, text: nil
     - else

@@ -1,6 +1,6 @@
 section.top_activities
   .row
-    h2.icon-popular-events= t 'activities.top' 
+    h2.icon-popular-events= t 'activities.index.top' 
   .row
     ol.activities
       - @top_events.each do |event|
@@ -9,7 +9,7 @@ section.top_activities
           .about
             .user_name
               = image_tag event.activity.guide.avatar
-              span.name= event.activity.name
+              span.name= link_to event.activity.name, activity_path(event.activity)
             .info
               .address.icon-location= truncate(event.activity.address, length: 25)
               .price= number_to_currency(event.activity.price)
@@ -19,7 +19,7 @@ section.top_activities
 section.top_lists
   .row
     .most_recent_events
-      h3.icon-new-event= t 'activities.recent'
+      h3.icon-new-event= t 'activities.index.recent'
       ol.events
         - @recent_events.each_with_index do |event, index|
           li.event
