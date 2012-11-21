@@ -13,3 +13,14 @@ section.top_activities
           .info
             .address.icon-location= truncate(event.activity.address, length: 25)
             .price= number_to_currency(event.activity.price)
+
+
+
+section.top_lists
+  .row
+    .most_recent_events
+      h3.icon-new-event= t 'activities.recent'
+      ol.events
+        - @recent_events.each_with_index do |event|
+          li.event
+            | #{content_tag :span, i + 1}#{truncate(event.activity.name, :length => 25)}
