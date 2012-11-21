@@ -17,3 +17,6 @@ database.yml
 *.swp
 public/uploads
 config/initializers/01_envvars.rb
+
+# Ignore mac temp files
+.DS_Store
