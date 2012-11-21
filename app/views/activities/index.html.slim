@@ -10,9 +10,9 @@ section.top_activities
             .user_name
               = image_tag event.activity.guide.avatar
               span.name= event.activity.name
-          .info
-            .address.icon-location= truncate(event.activity.address, length: 25)
-            .price= number_to_currency(event.activity.price)
+            .info
+              .address.icon-location= truncate(event.activity.address, length: 25)
+              .price= number_to_currency(event.activity.price)
 
 
 
