@@ -1,4 +1,37 @@
 // General rules
+
+body
+  font-family: "Proxima Nova", sans-serif
+  line-height: normal
+  background: #f8f8f8
+
+h1
+  font-size: 2.5em
+  font-weight: bold
+
+h2, h3
+  color: gray
+  font-size: 1.5em
+  margin-bottom: 1em
+  line-height: 42px
+  img
+    width: 35px
+    margin-right: .25em
+    float: left
+    +opacity(.3)
+
+h3
+  font-size: 1em
+
+a
+  color: gray
+  text-decoration: none
+  &:hover
+    color: $pink
+    text-decoration: underline
+
+
+
 section
   +grid-container
 article.left
@@ -22,7 +55,7 @@ section.top_activities h2, .meurio_and_login
   +grid(12)
   +last
 
-header
+header.login
   background: white
   padding-top: .25em
   padding-bottom: .25em
@@ -51,25 +84,6 @@ header
       float: right
       margin-top: 5px
       margin-left: 1em
-
-body
-  font-family: "Proxima Nova", sans-serif
-  line-height: normal
-  background: #f8f8f8
-
-h2, h3
-  color: gray
-  font-size: 1.5em
-  margin-bottom: 1em
-  line-height: 42px
-  img
-    width: 35px
-    margin-right: .25em
-    float: left
-    +opacity(.3)
-
-h3
-  font-size: 1em
 
 img
   margin: 0
