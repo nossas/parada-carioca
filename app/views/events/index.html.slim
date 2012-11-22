@@ -18,6 +18,12 @@ section.top_activities
 
 section.top_lists
   .row
+    .most_popular_guides
+      h3.icon-top-guides= t 'activities.index.most_popular_guides'
+      ol.guides
+        - @most_popular_guides.each_with_index do |guide, index|
+          li.guide
+            | #{content_tag :span, index + 1}#{truncate(guide.name, :length => 25)}
     .most_recent_events
       h3.icon-new-event= t 'events.index.recent'
       ol.events
