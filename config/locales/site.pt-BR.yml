@@ -6,6 +6,6 @@ pt-BR:
     index:
       top: "As Paradas Top"
       recent: "Novas Paradas"
+      most_popular_guides: "Guias Top"
     show:
       what_is: 'Qual é a Parada?'
-
