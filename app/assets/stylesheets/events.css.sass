@@ -58,3 +58,61 @@ body.events#index
         width: 20px
         text-align: center
         margin-right: .25em
+body.events#show
+  .head 
+    background: white
+    margin-bottom: 1em
+    +box-shadow(-1px 1px 2px lighten(black, 60%))
+  .event
+    h1
+      font-size: 1.4em
+      color: darken(gray, 15%)
+      margin-bottom: 0
+    .icon-location
+      font-size: .8em
+      color: lighten(gray, 10%)
+      &:before
+        color: $pink     
+        margin-right: .1em
+        font-size: 1.4em
+        top: .2em
+  .event header, .cost .price, .cost .reviews
+    padding: 1.2em 
+  .event header
+    +box-shadow(.4em -.4em 1em lighten(gray, 45%))
+  .cost
+    .price, .reviews
+      padding: 1em .3em
+      +mobile-hide
+    .price
+      padding-right: 0
+      font-size: 1.7em
+      +grid-subcolumn(4, 3)
+      +last
+      +box-shadow(.2em -.4em .4em lighten(gray, 45%))
+      .icon-money
+        span
+          font-size: .45em
+          display: inline-block
+          color: darken(gray, 25%)
+          strong
+            display: block
+            line-height: .5em
+        &:before
+          color: lighten(green, 10%)
+          font-size: .7em
+    .reviews
+      text-align: center
+      font-size: .7em
+      padding: 1.85em .9em
+      +grid-subcolumn(4, 1)
+      +last
+
+      span
+        font-size: 1.4em !important
+        color: white
+        display: block
+        padding: .4em
+        background: image-url('review.png') no-repeat center 
+         
+    

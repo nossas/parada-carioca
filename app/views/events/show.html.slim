@@ -1,17 +1,33 @@
 section.activity
-  .row
-    article.left
+  .row.head
+    article.left.event
       header
-        h1= @event.activity.name
-        span.icon-location= @event.activity.address
-    aside.right
-      = @event.activity.price
+        h1= @activity.name 
+        span.icon-location= @activity.address
+    aside.right.cost
+      .price
+        .icon-money= t 'events.price_html', price: number_to_currency(@activity.price, unit: '')
+      .reviews
+        = t 'reviews.count_html', count: 3
   .row
-    article.left role='activity'
+    article.left.detail role='event'
       .image
-        = image_tag @event.activity.image.url
+        = image_tag @activity.image.url
       .description
-        h2= t 'activities.show.what_is'
-        p= @event.activity.description
-    aside.right
+        h2= t 'events.show.what_is'
+        p= @activity.description
+      .reviews
+        = t 'reviews.count_html', count: 3
+    aside.right.about
+      .events
+        = time_tag @event.date
+        .icon-checkmark= t 'events.schedule'
+      .actions
+        = t 'events.favorite'
+        = t 'events.reschedule'
+      .user
+        .image= image_tag @activity.guide.avatar
+        .info
+          h3= @activity.guide.name
+          = t 'users.talk_with'
 
