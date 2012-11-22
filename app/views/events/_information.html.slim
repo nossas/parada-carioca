@@ -1,0 +1,16 @@
+aside.right.about
+  .events
+    = time_tag @event.date
+    .btn
+      .icon-checkmark= t 'events.schedule'
+  .actions
+    .btn.btn_gray
+      .icon-heart= t 'events.favorite'
+    .btn.btn_gray
+       .icon-calendar-add= t 'events.reschedule'
+  .user
+    .image= image_tag @activity.guide.avatar
+    .info
+      h3= @activity.guide.name
+      = t 'users.talk_with'
+

@@ -1,36 +1,5 @@
 section.activity
-  .row.head
-    article.left.event
-      header
-        h1= @activity.name 
-        span.icon-location= @activity.address
-    aside.right.cost
-      .price
-        .icon-money= t 'events.price_html', price: number_to_currency(@activity.price, unit: '')
-      .reviews
-        = t 'reviews.count_html', count: 3
+  = render 'header'
   .row
-    article.left.detail role='event'
-      .image
-        = image_tag @activity.image.url
-      .description
-        h2= t 'events.show.what_is'
-        p= @activity.description
-      .reviews
-        = t 'reviews.count_html', count: 3
-    aside.right.about
-      .events
-        = time_tag @event.date
-        .btn
-          .icon-checkmark= t 'events.schedule'
-      .actions
-        .btn.btn_gray
-          .icon-heart= t 'events.favorite'
-        .btn.btn_gray
-           .icon-calendar-add= t 'events.reschedule'
-      .user
-        .image= image_tag @activity.guide.avatar
-        .info
-          h3= @activity.guide.name
-          = t 'users.talk_with'
-
+    = render 'description'
+    = render 'information'

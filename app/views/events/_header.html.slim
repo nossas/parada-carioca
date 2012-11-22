@@ -1,0 +1,11 @@
+.row.head
+  article.left.event
+    header
+      h1= @activity.name 
+      span.icon-location= @activity.address
+  aside.right.cost
+    .price
+      .icon-money= t 'events.price_html', price: number_to_currency(@activity.price, unit: '')
+    .reviews
+      = t 'reviews.count_html', count: 3
+
