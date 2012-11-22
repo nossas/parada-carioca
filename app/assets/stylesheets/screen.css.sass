@@ -1,38 +1,61 @@
-$columnal-grid-width: 940px !default
-
-// Color settings
-$pink: #df4b99
-$blue: #21bde6
-
-// Default importings
-@import compass/reset
-@import columnal/grid
-@import icomoon
-@import fonts
-
 // General rules
-section, header
-  +grid-container
 
+body
+  font-family: "Proxima Nova", sans-serif
+  line-height: normal
+  background: #f8f8f8
+
+h1
+  font-size: 2em
+  font-weight: bold
+
+h2, h3
+  color: gray
+  font-size: 1.5em
+  margin-bottom: 1em
+  line-height: 42px
+  img
+    width: 35px
+    margin-right: .25em
+    float: left
+    +opacity(.3)
+
+h3
+  font-size: 1em
+
+a
+  color: gray
+  text-decoration: none
+  &:hover
+    color: $pink
+    text-decoration: underline
+
+
+
+section
+  +grid-container
+article.left
+  +grid(8) 
+aside.right
+  +grid(4)
+  +last
 .row
   +grid-row
 
-.activity
+li.activity
   +grid(4)
   &:last-child
     +last
 
-.most_popular_guides, .most_recent_events
-  +grid(3)
-
 .most_recent_events
+  +grid(3)
   +last
 
 section.top_activities h2, .meurio_and_login
   +grid(12)
   +last
 
-header
+header.login
   background: white
   padding-top: .25em
   padding-bottom: .25em
@@ -62,32 +85,7 @@ header
       margin-top: 5px
       margin-left: 1em
 
-body
-  font-family: "Proxima Nova", sans-serif
-  line-height: normal
-  background: #f8f8f8
-
-
-h2, h3
-  color: gray
-  font-size: 1.5em
-  margin-bottom: 1em
-  line-height: 42px
-  &:before
-    margin-right: .2em
-    font-size: 42px
-    position: relative
-    top: 10px
-
-h3
-  font-size: 1em
-
 img
   margin: 0
   +border-radius(0)
 
-// Default style
-@import screen
-
-// Import all page styles
-@import events 

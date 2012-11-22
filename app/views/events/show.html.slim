@@ -1,0 +1,17 @@
+section.activity
+  .row
+    article.left
+      header
+        h1= @event.activity.name
+        span.icon-location= @event.activity.address
+    aside.right
+      = @event.activity.price
+  .row
+    article.left role='activity'
+      .image
+        = image_tag @event.activity.image.url
+      .description
+        h2= t 'activities.show.what_is'
+        p= @event.activity.description
+    aside.right
+
