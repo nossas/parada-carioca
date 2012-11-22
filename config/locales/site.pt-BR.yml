@@ -17,3 +17,5 @@ pt-BR:
       most_popular_guides: "Guias Top"
     show:
       what_is: 'Qual é a Parada?'
+  activities:
+    top_guides: "Guias top"
