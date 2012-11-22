@@ -21,10 +21,13 @@ section.activity
     aside.right.about
       .events
         = time_tag @event.date
-        .icon-checkmark= t 'events.schedule'
+        .btn
+          .icon-checkmark= t 'events.schedule'
       .actions
-        = t 'events.favorite'
-        = t 'events.reschedule'
+        .btn.btn_gray
+          .icon-heart= t 'events.favorite'
+        .btn.btn_gray
+           .icon-calendar-add= t 'events.reschedule'
       .user
         .image= image_tag @activity.guide.avatar
         .info

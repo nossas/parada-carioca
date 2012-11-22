@@ -41,8 +41,48 @@ article.left
 aside.right
   +grid(4)
   +last
+
+
+
 .row
   +grid-row
+
+.btn
+  background: $pink
+  color: white
+  text-align: center
+  text-transform: uppercase
+  padding: .8em .4em
+  background: $pink
+  font-weight: bold
+  font-size: 1em
+  margin: .4em auto
+  +transition(.2s)
+  +background-image(linear-gradient($pink, darken($pink, 10%)))
+  +box-shadow(0 0 .1em lighten(black, 15%))
+  +border-radius(4px)
+  &:hover
+    background: darken($pink, 5%)
+    cursor: pointer
+  .icon-checkmark
+    &:before
+      font-size: 1.4em
+      opacity: .8
+      top: .1em
+  .icon-checkmark, .icon-heart, .icon-calendar-add
+    &:before
+      margin-right: .3em
+.btn_gray
+  padding: .4em .2em
+  width: 60%
+  background: lighten(gray, 10%)
+  font-size: .8em
+  &:hover
+    background: darken(gray, 15%)
+  .icon-heart, .icon-calendar-add
+    &:before
+      color: lighten(gray, 40%)
+      top: .1em
 
 li.activity
   +grid(4)
