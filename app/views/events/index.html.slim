@@ -1,6 +1,6 @@
 section.top_activities
   .row
-    h2.icon-popular-events= t 'activities.index.top' 
+    h2.icon-popular-events= t 'events.index.top' 
   .row
     ol.activities
       - @top_events.each do |event|
@@ -25,7 +25,7 @@ section.top_lists
           li.guide
             | #{content_tag :span, index + 1}#{truncate(guide.name, :length => 25)}
     .most_recent_events
-      h3.icon-new-event= t 'activities.index.recent'
+      h3.icon-new-event= t 'events.index.recent'
       ol.events
         - @recent_events.each_with_index do |event, index|
           li.event

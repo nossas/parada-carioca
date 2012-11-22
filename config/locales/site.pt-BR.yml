@@ -2,7 +2,15 @@ pt-BR:
   site:
     title: "Parada Carioca"
     login_html: "Entre com a sua conta do <a href='%{link}' class='icon-facebook' id='auth_facebook'>%{text}</a>"
-  activities:
+  reviews:
+    count_html: '<span>%{count}</span> avaliações'
+  users:
+    talk_with: "Fale comigo"
+  events:
+    schedule: 'Agendar Parada'
+    favorite: 'Tornar Favorita'
+    reschedule: 'Solicitar Nova Data'
+    price_html: '%{price} <span><strong>reais</strong> por pessoa</span>'
     index:
       top: "As Paradas Top"
       recent: "Novas Paradas"
