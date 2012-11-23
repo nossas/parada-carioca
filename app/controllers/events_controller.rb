@@ -6,5 +6,6 @@ class EventsController < ApplicationController
     @recent_events = Event.by_most_recent.limit(5)
     @popular_guides = User.by_popularity.limit(5)
     @popular_events = Event.by_popularity.limit(5)
+    @popular_neighborhoods = Neighborhood.by_popularity.limit(5)
   end
 end

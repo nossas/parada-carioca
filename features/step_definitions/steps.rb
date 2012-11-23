@@ -26,6 +26,15 @@ Then /^the (\d+).* most popular guide should be "(.*?)"$/ do |arg1, arg2|
   page.should have_css(".popular_guides li.guide:nth-child(#{arg1})", :text => truncate(arg2, :length => 25))
 end
 
+Given /^there is an activity in "(.*?)" with (\d+) attendees$/ do |arg1, arg2|
+  event = Event.make! :activity => Activity.make!(:neighborhood => Neighborhood.find_by_name(arg1))
+  arg2.to_i.times { event.attendees << User.make! }
+end
+
+Then /^the (\d+).* most popular neighborhood should be "(.*?)"$/ do |arg1, arg2|
+  page.should have_css(".popular_neighborhoods li.neighborhood:nth-child(#{arg1})", :text => truncate(arg2, :length => 25))
+end
+
 Then(/^show me the page$/)                      { save_and_open_page }
 When(/^I go to "(.*?)"$/)                       { |arg1| visit path(arg1) }
 Then(/^the first activity should be "(.*?)"$/)  { |arg1| page.should have_css('ol.activities li:first-child', :text => arg1) }

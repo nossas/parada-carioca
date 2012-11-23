@@ -15,6 +15,7 @@ pt-BR:
       recent_events: "Novas Paradas"
       popular_guides: "Guias Top"
       popular_events: "Paradas Top"
+      popular_neighborhoods: "Bairros Top"
     show:
       what_is: 'Qual é a Parada?'
   activities:

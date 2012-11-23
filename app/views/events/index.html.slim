@@ -16,6 +16,12 @@ section.featured_events
 
 section.top_lists
   .row
+    .popular_neighborhoods
+      h3.icon-top-places= t 'events.index.popular_neighborhoods'
+      ol.neighborhoods
+        - @popular_neighborhoods.each_with_index do |neighborhood, index|
+          li.neighborhood
+            | #{content_tag :span, index + 1}#{truncate(neighborhood.name, :length => 25)}
     .popular_guides
       h3.icon-top-guides= t 'events.index.popular_guides'
       ol.guides
