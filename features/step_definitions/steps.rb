@@ -10,7 +10,7 @@ Given(/^there is an event called "(.*?)" created (\d+) days ago$/) do |arg1, arg
 end
 
 Then /^the (\d+).* most recent event should be "(.*?)"$/ do |arg1, arg2|
-  page.should have_css(".most_recent_events li.event:nth-child(#{arg1})", :text => truncate(arg2, :length => 25))
+  page.should have_css(".recent_events li.event:nth-child(#{arg1})", :text => truncate(arg2, :length => 25))
 end
 
 Given /^there is a guide called "(.*?)" and email "(.*?)"$/ do |arg1, arg2|
@@ -23,7 +23,7 @@ Given /^there is an activity of "(.*?)" with (\d+) attendees$/ do |arg1, arg2|
 end
 
 Then /^the (\d+).* most popular guide should be "(.*?)"$/ do |arg1, arg2|
-  page.should have_css(".most_popular_guides li.guide:nth-child(#{arg1})", :text => truncate(arg2, :length => 25))
+  page.should have_css(".popular_guides li.guide:nth-child(#{arg1})", :text => truncate(arg2, :length => 25))
 end
 
 Then(/^show me the page$/)                      { save_and_open_page }

@@ -1,9 +1,9 @@
-section.top_activities
+section.featured_events
   .row
-    h2.icon-popular-events= t 'events.index.top' 
+    h2.icon-popular-events= t 'events.index.popular_events' 
   .row
     ol.activities
-      - @top_events.each do |event|
+      - @popular_events[0..2].each do |event|
         li.activity
           .image= image_tag event.activity.image
           .about
@@ -14,18 +14,22 @@ section.top_activities
               .address.icon-location= truncate(event.activity.address, length: 25)
               .price= number_to_currency(event.activity.price)
 
-
-
 section.top_lists
   .row
-    .most_popular_guides
-      h3.icon-top-guides= t 'activities.index.top_guides'
+    .popular_guides
+      h3.icon-top-guides= t 'events.index.popular_guides'
       ol.guides
         - @popular_guides.each_with_index do |guide, index|
           li.guide
             | #{content_tag :span, index + 1}#{truncate(guide.name, :length => 25)}
-    .most_recent_events
-      h3.icon-new-event= t 'events.index.recent'
+    .popular_events
+      h3.icon-popular-events= t 'events.index.popular_events'
+      ol.events
+        - @popular_events.each_with_index do |event, index|
+          li.event
+            | #{content_tag :span, index + 1}#{truncate(event.activity.name, :length => 25)}
+    .recent_events
+      h3.icon-new-event= t 'events.index.recent_events'
       ol.events
         - @recent_events.each_with_index do |event, index|
           li.event
