@@ -1,3 +1,9 @@
+section.search
+  .row
+    = form_tag events_search_path, :method => :get do
+      = select_tag "by_neighborhood", options_from_collection_for_select(Neighborhood.order(:name), "id", "name"), :include_blank => true
+      = submit_tag "Buscar Parada"
+
 section.featured_events
   .row
     h2.icon-popular-events= t 'events.index.popular_events' 

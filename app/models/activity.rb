@@ -1,5 +1,5 @@
 class Activity < ActiveRecord::Base
-  attr_accessible :address, :description, :name, :price, :image, :user_id
+  attr_accessible :address, :description, :name, :price, :image, :user_id, :latitude, :longitude
 
   has_many :events
   belongs_to :guide, :class_name => "User", :foreign_key => "user_id"

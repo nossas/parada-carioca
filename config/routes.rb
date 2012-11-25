@@ -1,6 +1,8 @@
 ParadaCarioca::Application.routes.draw do
   match '/auth/:provider/callback', :to => 'sessions#create'
   
+  get '/events/search', :to => 'events#search'
+
   resources :activities, only: [:show] do 
     resources :events, only: [:index, :show]
   end
