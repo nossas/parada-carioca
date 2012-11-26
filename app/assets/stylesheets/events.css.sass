@@ -25,38 +25,10 @@ body.events#index
 
   section.featured_events
     margin-bottom: 3em
-    ol.activities
-      li.activity
-        margin-bottom: 1em
-        .image
-          float: left
-        .about
-          background: white
-          margin: 0 1px 2px 1px
-          overflow: hidden
-          padding: .5em
-          +box-shadow(lightgray 0 1px 2px)
-        .user_name
-          color: gray
-          overflow: hidden
-          border-bottom: 1px solid lighten(lightgray, 10%)
-          padding-bottom: .5em
-          margin-bottom: .5em
-          img
-            float: left
-            margin: 0 .5em .5em 0
-        .info
-          line-height: 20px
-          overflow: hidden
-          .address
-            float: left
-            color: gray
-            font-size: .8em
-            &:before
-              color: $pink
-          .price
-            color: $blue 
-            float: right
+
+  section.top_activities h2, .meurio_and_login
+    +grid(12)
+    +last
 
   section.top_lists
     margin-bottom: 3em
@@ -82,6 +54,10 @@ body.events#index
         width: 20px
         text-align: center
         margin-right: .25em
+    .popular_guides, .recent_events, .popular_events, .popular_neighborhoods
+      +grid(3)
+    .recent_events
+      +last
 
 body.events#show
   .head 
@@ -144,3 +120,51 @@ body.events#show
     .events, .user
       background: white
       padding: .8em
+
+body.events#search
+  section.search
+    background: lighten(lightgray, 10%)
+    margin-bottom: 1em
+    padding-top: 1.5em
+    padding-bottom: 1.5em
+  li.event
+    &:nth-child(3n+0)
+      +last
+
+section.featured_events, ul.search_result
+  li.event
+    +grid(4)
+    &:last-child
+      +last
+    margin-bottom: 1em
+    .image
+      float: left
+      img
+        float: left
+    .about
+      background: white
+      margin: 0 1px 2px 1px
+      overflow: hidden
+      padding: .5em
+      +box-shadow(lightgray 0 1px 2px)
+    .user_name
+      color: gray
+      overflow: hidden
+      border-bottom: 1px solid lighten(lightgray, 10%)
+      padding-bottom: .5em
+      margin-bottom: .5em
+      img
+        float: left
+        margin: 0 .5em .5em 0
+    .info
+      line-height: 20px
+      overflow: hidden
+      .address
+        float: left
+        color: gray
+        font-size: .8em
+        &:before
+          color: $pink
+      .price
+        color: $blue 
+        float: right

@@ -1,27 +1,13 @@
 section.search
   .row
     p O Parada Carioca chegou para aproximar os cariocas de um Rio de Janeiro que ainda não conhecem por inteiro. Comece agora:
-    = form_tag events_search_path, :method => :get do
-      .by_neighborhood
-        = label_tag "by_neighborhood", "Em qual bairro?"
-        = select_tag "by_neighborhood", options_from_collection_for_select(Neighborhood.order(:name), "id", "name")
-      = submit_tag "Buscar Parada", :class => "icon-search"
+    = render :partial => "search_form"
 
 section.featured_events
   .row
     h2.icon-popular-events= t 'events.index.popular_events' 
   .row
-    ol.activities
-      - @popular_events[0..2].each do |event|
-        li.activity
-          .image= image_tag event.activity.image
-          .about
-            .user_name
-              = image_tag event.activity.guide.avatar
-              span.name= link_to event.activity.name, activity_event_path(event.activity, event)
-            .info
-              .address.icon-location= truncate(event.activity.address, length: 25)
-              .price= number_to_currency(event.activity.price)
+    ol.events= render @popular_events[0..2]
 
 section.top_lists
   .row

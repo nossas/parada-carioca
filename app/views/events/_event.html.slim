@@ -1,0 +1,9 @@
+li.event
+  .image= image_tag event.activity.image
+  .about
+    .user_name
+      = image_tag event.activity.guide.avatar
+      span.name= link_to event.activity.name, activity_event_path(event.activity, event)
+    .info
+      .address.icon-location= truncate(event.activity.address, length: 25)
+      .price= number_to_currency(event.activity.price)

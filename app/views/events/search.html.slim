@@ -1,5 +1,6 @@
+section.search
+  .row= render :partial => "search_form"
+
 section
   .row
-    ul.search_result
-      - @events.each do |event|
-        li.event= event.activity.name
+    ul.search_result= render @events

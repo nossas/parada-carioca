@@ -1,0 +1,5 @@
+= form_tag events_search_path, :method => :get do
+  .by_neighborhood
+    = label_tag "by_neighborhood", "Em qual bairro?"
+    = select_tag "by_neighborhood", options_from_collection_for_select(Neighborhood.order(:name), "id", "name", params[:by_neighborhood])
+  = submit_tag "Buscar Parada", :class => "icon-search"
