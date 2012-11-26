@@ -1,3 +1,25 @@
+// Grids
+section
+  +grid-container
+article.left
+  +grid(8) 
+aside.right
+  +grid(4)
+  +last
+.row
+  +grid-row
+li.activity
+  +grid(4)
+  &:last-child
+    +last
+.popular_guides, .recent_events, .popular_events, .popular_neighborhoods
+  +grid(3)
+.recent_events
+  +last
+section.top_activities h2, .meurio_and_login
+  +grid(12)
+  +last
+
 // General rules
 
 body
@@ -34,24 +56,17 @@ a
     color: $pink
     text-decoration: underline
 
+a, select, input
+  outline: none
+
 strong
   font-weight: bold
 
+img
+  margin: 0
+  +border-radius(0)
 
-section
-  +grid-container
-article.left
-  +grid(8) 
-aside.right
-  +grid(4)
-  +last
-
-
-
-.row
-  +grid-row
-
-.btn
+.btn, input[type='submit']
   background: $pink
   color: white
   text-align: center
@@ -61,6 +76,7 @@ aside.right
   font-weight: bold
   font-size: 1em
   margin: .4em auto
+  border: none
   +transition(.2s)
   +background-image(linear-gradient($pink, darken($pink, 10%)))
   +box-shadow(0 0 .1em lighten(black, 15%))
@@ -76,6 +92,7 @@ aside.right
   .icon-checkmark, .icon-heart, .icon-calendar-add
     &:before
       margin-right: .3em
+
 .btn_gray
   padding: .4em .2em
   width: 60%
@@ -87,20 +104,6 @@ aside.right
     &:before
       color: lighten(gray, 40%)
       top: .1em
-
-li.activity
-  +grid(4)
-  &:last-child
-    +last
-
-.popular_guides, .recent_events, .popular_events, .popular_neighborhoods
-  +grid(3)
-
-.recent_events
-  +last
-section.top_activities h2, .meurio_and_login
-  +grid(12)
-  +last
 
 header.login
   background: white
@@ -132,6 +135,5 @@ header.login
       margin-top: 5px
       margin-left: 1em
 
-img
-  margin: 0
-  +border-radius(0)
+section.nav
+  margin-bottom: 1em

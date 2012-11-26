@@ -1,8 +1,11 @@
 section.search
   .row
+    p O Parada Carioca chegou para aproximar os cariocas de um Rio de Janeiro que ainda não conhecem por inteiro. Comece agora:
     = form_tag events_search_path, :method => :get do
-      = select_tag "by_neighborhood", options_from_collection_for_select(Neighborhood.order(:name), "id", "name"), :include_blank => true
-      = submit_tag "Buscar Parada"
+      .by_neighborhood
+        = label_tag "by_neighborhood", "Em qual bairro?"
+        = select_tag "by_neighborhood", options_from_collection_for_select(Neighborhood.order(:name), "id", "name")
+      = submit_tag "Buscar Parada", :class => "icon-search"
 
 section.featured_events
   .row
