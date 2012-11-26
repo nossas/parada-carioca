@@ -12,9 +12,10 @@ pt-BR:
     reschedule: 'Solicitar Nova Data'
     price_html: '%{price} <span><strong>reais</strong> por pessoa</span>'
     index:
-      top: "As Paradas Top"
-      recent: "Novas Paradas"
-      most_popular_guides: "Guias Top"
+      recent_events: "Novas Paradas"
+      popular_guides: "Guias Top"
+      popular_events: "Paradas Top"
+      popular_neighborhoods: "Bairros Top"
     show:
       what_is: 'Qual é a Parada?'
   activities:

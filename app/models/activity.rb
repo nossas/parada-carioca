@@ -1,15 +1,13 @@
 class Activity < ActiveRecord::Base
-  attr_accessible :address, :description, :name, :price, :image, :user_id
+  attr_accessible :address, :description, :name, :price, :image, :user_id, :latitude, :longitude
 
   has_many :events
   belongs_to :guide, :class_name => "User", :foreign_key => "user_id"
+  belongs_to :neighborhood
 
   validates :address, :description, :name, :price, :user_id, :presence => true
   
-  
   mount_uploader :image, ImageUploader
-
-
 
   def to_param
     "#{id}-#{self.name.parameterize}"

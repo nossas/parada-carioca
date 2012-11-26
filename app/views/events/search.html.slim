@@ -1,0 +1,5 @@
+section
+  .row
+    ul.search_result
+      - @events.each do |event|
+        li.event= event.activity.name
