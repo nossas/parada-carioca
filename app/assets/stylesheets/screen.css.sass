@@ -51,6 +51,9 @@ a
 a, select, input
   outline: none
 
+select
+  font-size: 1em
+
 strong
   font-weight: bold
 
@@ -58,12 +61,12 @@ img
   margin: 0
   +border-radius(0)
 
-.btn, input[type='submit']
+.btn, input[type='submit'], button
   background: $pink
   color: white
   text-align: center
   text-transform: uppercase
-  padding: .8em .4em
+  padding: .8em 4em
   background: $pink
   font-weight: bold
   font-size: 1em
@@ -73,6 +76,13 @@ img
   +background-image(linear-gradient($pink, darken($pink, 10%)))
   +box-shadow(0 0 .1em lighten(black, 15%))
   +border-radius(4px)
+  &:before
+    vertical-align: middle
+    top: -1px
+    line-height: 0
+    font-size: 1.5em
+    margin-right: .5em
+    +opacity(.5)
   &:hover
     background: darken($pink, 5%)
     cursor: pointer

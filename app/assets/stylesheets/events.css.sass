@@ -2,26 +2,6 @@ body.events#index
   section.search
     background: url("img-destaque-home.jpg")
     color: white
-    padding-top: 2.5em
-    padding-bottom: 2.5em
-    margin-bottom: 1em 
-    text-align: center
-    p
-      font-size: 1.5em
-      margin-bottom: 2em
-    form
-      input[type='submit']
-        padding: .75em 4em
-      .by_neighborhood
-        display: inline-block
-        margin-right: 2em
-        text-align: left
-        position: relative
-        top: 8px
-        label, select
-          display: block
-        select
-          font-size: 2em
 
   section.featured_events
     margin-bottom: 3em
@@ -127,20 +107,6 @@ body.events#show
 body.events#search
   section.search
     background: lighten(lightgray, 10%)
-    margin-bottom: 1em
-    padding-top: 1.5em
-    padding-bottom: 1.5em
-    text-align: center
-    .by_neighborhood
-      display: inline-block
-      margin-right: 1em
-      position: relative
-      top: 8px
-      text-align: left
-      label, select
-        display: block
-      select
-        font-size: 2em
   li.event
     &:nth-child(3n+0)
       +last
@@ -155,6 +121,7 @@ section.featured_events, ul.search_result
       float: left
       img
         float: left
+        width: 100%
     .about
       background: white
       margin: 0 1px 2px 1px
@@ -182,3 +149,21 @@ section.featured_events, ul.search_result
       .price
         color: $blue 
         float: right
+
+section.search
+  padding-top: 2em
+  padding-bottom: 2em
+  margin-bottom: 1em 
+  text-align: center
+  p
+    font-size: 1.5em
+    margin-bottom: 2em
+  form
+    .by_neighborhood
+      display: inline-block
+      margin-right: 2em
+      text-align: left
+      position: relative
+      top: 8px
+      label, select
+        display: block
