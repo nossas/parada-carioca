@@ -14,3 +14,5 @@ Neighborhood.create! :name => "Santa Teresa",    :latitude => -22.917688,  :long
 Neighborhood.create! :name => "Catete",          :latitude => -22.92612,   :longitude => -43.179162
 Neighborhood.create! :name => "Cosme Velho",     :latitude => -22.942981,  :longitude => -43.200002
 Neighborhood.create! :name => "Glória",          :latitude => -22.920878,  :longitude => -43.173459
+Neighborhood.create! :name => "São Conrado",     :latitude => -22.999898,  :longitude => -43.266652
+Neighborhood.create! :name => "Barra da Tijuca", :latitude => -22.999642,  :longitude => -43.365882
