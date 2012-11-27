@@ -107,6 +107,8 @@ body.events#show
 body.events#search
   section.search
     background: lighten(lightgray, 10%)
+    .row
+      overflow: visible
   li.event
     &:nth-child(3n+0)
       +last
@@ -164,6 +166,16 @@ section.search
       margin-right: 2em
       text-align: left
       position: relative
-      top: 8px
-      label, select
+      top: -12px
+      label
         display: block
+      .select2-container
+        a.select2-choice
+          font-size: 1.5em
+          padding: .25em
+          div
+            padding-top: .25em
+
+.select2-drop
+  .select2-search
+    display: none
