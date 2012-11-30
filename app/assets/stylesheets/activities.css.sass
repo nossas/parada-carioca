@@ -49,18 +49,25 @@ body.activities.search
       +last
 
 body.activities.show
-  .activity_title
+  .activity_title, .activity_info
     +grid(8)
   .activity_price
     +grid(2)
   .activity_reviews
     +grid(2)
     +last
+  .activity_panel
+    +grid(4)
+    +last
   .activity_title, .activity_price, .activity_reviews
     color: darken(gray, 10%)
+    margin-bottom: 1em
   font-size: .9em
   h1
     font-size: 1.5em  
+  h2
+    color: $blue
+    margin-bottom: .5em
   span
     &:before
       margin-right: .25em
@@ -86,6 +93,20 @@ body.activities.show
   span.icon-review
     &:before
       color: $pink
+  .activity_image
+    margin-bottom: 1em
+    overflow: hidden
+    img
+      float: left
+  .activity_share
+    margin-bottom: 1em
+    .fb-like
+      top: 2px
+  .activity_description
+    p
+      line-height: 1.5em
+      color: darken(gray, 10%)
+      margin-bottom: 1em
                       
 section.featured_activities, ul.search_result
   li.activity         

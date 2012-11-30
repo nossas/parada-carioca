@@ -9,3 +9,27 @@ section
         span.icon-clock #{@activity.duration} horas
     .activity_price #{content_tag :span, number_to_currency(@activity.price).delete("R$ "), :class => "icon-money"} #{content_tag :strong, "reais"} por pessoa
     .activity_reviews #{content_tag :span, @activity.reviews.count, :class => "icon-review"} avaliações
+  .row
+    .activity_info
+      .activity_image= image_tag @activity.image
+      .activity_share
+        a.twitter-share-button href="https://twitter.com/share", "data-lang"="pt" Tweetar
+        .fb-like "data-href"=request.url, "data-send"="true", "data-layout"="button_count", "data-width"="450", "data-show-faces"="false"
+      hr
+      .activity_description
+        h2 Qual é a Parada?
+        = simple_format @activity.description
+    .activity_panel
+
+#fb-root
+javascript:
+  (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=329953690444851";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+javascript:
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
