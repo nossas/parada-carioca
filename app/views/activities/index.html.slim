@@ -1,0 +1,33 @@
+section.search
+  .row
+    p O Parada Carioca chegou para aproximar os cariocas de um Rio de Janeiro que ainda não conhecem por inteiro. Comece agora:
+    = render :partial => "search_form"
+
+section.featured_activities
+  .row
+    h2.icon-popular-activities Paradas Top
+  .row
+    ol.activities= render @popular_activities[0..2]
+
+section.top_lists
+  .row
+    .popular_neighborhoods
+      h3.icon-top-places Bairros Top
+      ol.neighborhoods
+        - @popular_neighborhoods.each_with_index do |neighborhood, index|
+          li.neighborhood #{content_tag :span, index + 1}#{truncate(neighborhood.name, :length => 25)}
+    .popular_guides
+      h3.icon-top-guides Guias Top
+      ol.guides
+        - @popular_guides.each_with_index do |guide, index|
+          li.guide #{content_tag :span, index + 1}#{truncate(guide.name, :length => 25)}
+    .popular_activities
+      h3.icon-popular-activities Paradas Top
+      ol.activities
+        - @popular_activities.each_with_index do |activity, index|
+          li.activity #{content_tag :span, index + 1}#{truncate(activity.name, :length => 25)}
+    .recent_activities
+      h3.icon-new-activity Novas Paradas
+      ol.activities
+        - @recent_activities.each_with_index do |activity, index|
+          li.activity #{content_tag :span, index + 1}#{truncate(activity.name, :length => 25)}

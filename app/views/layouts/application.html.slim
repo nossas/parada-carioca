@@ -8,7 +8,16 @@ html
     = favicon_link_tag 'favicon.png', type: 'image/png'
   body class=controller.controller_name id=controller.action_name
     header.login
-      = render 'layouts/login'
+      .row
+        .meurio_and_login
+          = link_to image_tag("meurio.jpeg"), "http://meurio.org.br/"
+          - if current_user.nil?
+            .login Entre com a sua conta do #{link_to "", facebook_auth_path, :class => "icon-facebook", :id => "auth_facebook"}
+          - else
+            .user_name_and_avatar.user_panel
+              = current_user.name
+              = image_tag current_user.avatar
+
     .content role="main"
       section.nav
         .row

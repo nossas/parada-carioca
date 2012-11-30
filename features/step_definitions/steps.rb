@@ -1,16 +1,16 @@
 include ActionView::Helpers::TextHelper
 
-Given /^there is an event called "(.*?)" with (\d+) attendees$/ do |arg1, arg2|
+Given /^there is an activity called "(.*?)" with (\d+) attendees$/ do |arg1, arg2|
   event = Event.make! :activity => Activity.make!(:name => arg1)
   arg2.to_i.times { event.attendees << User.make! }
 end
 
-Given(/^there is an event called "(.*?)" created (\d+) days ago$/) do |arg1, arg2|
-  Event.make! :activity => Activity.make!(:name => arg1), :created_at => Time.now - arg2.to_i.days
+Given(/^there is an activity called "(.*?)" created (\d+) days ago$/) do |arg1, arg2|
+  Activity.make! :name => arg1, :created_at => Time.now - arg2.to_i.days
 end
 
-Then /^the (\d+)[st|nd|rd]+ most recent event should be "(.*?)"$/ do |arg1, arg2|
-  page.should have_css(".recent_events li.event:nth-child(#{arg1})", :text => truncate(arg2, :length => 25))
+Then /^the (\d+)[st|nd|rd]+ most recent activity should be "(.*?)"$/ do |arg1, arg2|
+  page.should have_css(".recent_activities li.activity:nth-child(#{arg1})", :text => truncate(arg2, :length => 25))
 end
 
 Given /^there is a guide called "(.*?)" and email "(.*?)"$/ do |arg1, arg2|
@@ -35,21 +35,21 @@ Then /^the (\d+)[st|nd|rd]+ most popular neighborhood should be "(.*?)"$/ do |ar
   page.should have_css(".popular_neighborhoods li.neighborhood:nth-child(#{arg1})", :text => truncate(arg2, :length => 25))
 end
 
-Given /^there is an event called "(.*?)" in "(.*?)"$/ do |arg1, arg2|
-  Event.make! :activity => Activity.make!({:name => arg1, :address => arg2}.merge(location(arg2)))
+Given /^there is an activity called "(.*?)" in "(.*?)"$/ do |arg1, arg2|
+  Activity.make!({:name => arg1, :address => arg2}.merge(location(arg2)))
 end
 
 Given /^I select "(.*?)" as the neighborhood filter$/ do |arg1|
   select(arg1, :from => "by_neighborhood")
 end
 
-Then /^the (\d+)[st|nd|rd]+ event found should be "(.*?)"$/ do |arg1, arg2|
-  page.should have_css(".search_result li.event:nth-child(#{arg1})", :text => arg2)
+Then /^the (\d+)[st|nd|rd]+ activity found should be "(.*?)"$/ do |arg1, arg2|
+  page.should have_css(".search_result li.activity:nth-child(#{arg1})", :text => arg2)
 end
 
 Then(/^show me the page$/)                      { save_and_open_page }
 When(/^I go to "(.*?)"$/)                       { |arg1| visit path(arg1) }
-Then(/^the first activity should be "(.*?)"$/)  { |arg1| page.should have_css('ol.events li:first-child', :text => arg1) }
+Then(/^the first activity should be "(.*?)"$/)  { |arg1| page.should have_css('ol.activities li:first-child', :text => arg1) }
 Then(/^I should see "(.*?)"$/)                  { |arg1| page.should have_content(arg1) }
 When(/^I click "(.*?)"$/)                       { |arg1| click_link link(arg1) }
 Then(/^I should see "(.*?)" component$/)        { |arg1| page.should have_css(component(arg1)) }

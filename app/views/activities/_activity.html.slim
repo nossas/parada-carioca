@@ -1,0 +1,9 @@
+li.activity
+  .image= image_tag activity.image
+  .about
+    .user_name
+      = image_tag activity.guide.avatar
+      span.name= link_to activity.name, activity
+    .info
+      .address.icon-location= truncate(activity.address, length: 25)
+      .price= number_to_currency(activity.price)
