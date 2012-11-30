@@ -1,4 +1,4 @@
-body.activities#index
+body.activities.index
   section.search
     background: url("img-destaque-home.jpg")
     color: white
@@ -39,7 +39,7 @@ body.activities#index
     .recent_activities
       +last
 
-body.activities#search
+body.activities.search
   section.search
     background: lighten(lightgray, 10%)
     .row
@@ -48,8 +48,47 @@ body.activities#search
     &:nth-child(3n+0)
       +last
 
+body.activities.show
+  .activity_title
+    +grid(8)
+  .activity_price
+    +grid(2)
+  .activity_reviews
+    +grid(2)
+    +last
+  .activity_title, .activity_price, .activity_reviews
+    color: darken(gray, 10%)
+  font-size: .9em
+  h1
+    font-size: 1.5em  
+  span
+    &:before
+      margin-right: .25em
+  .activity_title
+    span
+      margin-right: 1em
+      &.icon-location
+        &:before
+          color: $pink
+      &.icon-people
+        &:before
+          color: $yellow
+      &.icon-clock
+        &:before
+          color: $blue
+  span.icon-money, span.icon-review
+    display: block
+    font-size: 1.5em
+    font-weight: bold
+    &:before
+      color: $green
+      font-size: .7em
+  span.icon-review
+    &:before
+      color: $pink
+                      
 section.featured_activities, ul.search_result
-  li.activity
+  li.activity         
     +grid(4)
     &:last-child
       +last
@@ -91,6 +130,7 @@ section.search
   padding-top: 2em
   padding-bottom: 2em
   margin-bottom: 1em 
+  margin-top: -1em
   text-align: center
   p
     font-size: 1.5em

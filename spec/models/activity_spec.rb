@@ -20,4 +20,43 @@ describe Activity do
       it("should order activities by most popular") { Activity.by_popularity.should be_== [activity2, activity3, activity1] }
     end
   end
+
+  describe "#minimum_attendees" do
+    context "when the activity doesn't have any event" do
+      before { subject.stub_chain(:events, :any?).and_return(false) }
+      its(:minimum_attendees){ should be_nil }
+    end
+
+    context "when the lowest value between all events minimum attendees of the activity is 2" do
+      before { subject.stub_chain(:events, :any?).and_return(true) }
+      before { subject.stub_chain(:events, :minimum).and_return(2) }
+      its(:minimum_attendees){ should be_== 2 }
+    end
+  end
+
+  describe "#maximum_attendees" do
+    context "when the activity doesn't have any event" do
+      before { subject.stub_chain(:events, :any?).and_return(false) }
+      its(:maximum_attendees){ should be_nil }
+    end
+
+    context "when the highest value between all events maximum attendees of the activity is 10" do
+      before { subject.stub_chain(:events, :any?).and_return(true) }
+      before { subject.stub_chain(:events, :maximum).and_return(10) }
+      its(:maximum_attendees){ should be_== 10 }
+    end
+  end
+
+  describe "#duration" do
+    context "when the activity doesn't have any event" do
+      before { subject.stub_chain(:events, :any?).and_return(false) }
+      its(:duration){ should be_nil }
+    end
+
+    context "when the average of the events durations is 5 hours" do
+      before { subject.stub_chain(:events, :any?).and_return(true) }
+      before { subject.stub_chain(:events, :average).and_return(5) }
+      its(:duration){ should be_== 5 }
+    end
+  end
 end

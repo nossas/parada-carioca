@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :activity, :date
+  attr_accessible :activity, :date, :minimum_attendees, :maximum_attendees, :duration
   
   belongs_to  :activity
   has_many    :participations

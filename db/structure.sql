@@ -104,7 +104,10 @@ CREATE TABLE events (
     date timestamp without time zone,
     activity_id integer,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    minimum_attendees integer,
+    maximum_attendees integer,
+    duration integer
 );
 
 
@@ -193,6 +196,37 @@ ALTER SEQUENCE participations_id_seq OWNED BY participations.id;
 
 
 --
+-- Name: reviews; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE reviews (
+    id integer NOT NULL,
+    activity_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: reviews_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE reviews_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: reviews_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE reviews_id_seq OWNED BY reviews.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -268,6 +302,13 @@ ALTER TABLE ONLY participations ALTER COLUMN id SET DEFAULT nextval('participati
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY reviews ALTER COLUMN id SET DEFAULT nextval('reviews_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
@@ -301,6 +342,14 @@ ALTER TABLE ONLY neighborhoods
 
 ALTER TABLE ONLY participations
     ADD CONSTRAINT participations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: reviews_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY reviews
+    ADD CONSTRAINT reviews_pkey PRIMARY KEY (id);
 
 
 --
@@ -347,3 +396,11 @@ INSERT INTO schema_migrations (version) VALUES ('20121125132049');
 INSERT INTO schema_migrations (version) VALUES ('20121125143425');
 
 INSERT INTO schema_migrations (version) VALUES ('20121125143443');
+
+INSERT INTO schema_migrations (version) VALUES ('20121130132844');
+
+INSERT INTO schema_migrations (version) VALUES ('20121130132859');
+
+INSERT INTO schema_migrations (version) VALUES ('20121130133043');
+
+INSERT INTO schema_migrations (version) VALUES ('20121130140045');

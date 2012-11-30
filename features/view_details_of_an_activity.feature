@@ -11,4 +11,3 @@ Feature: View details of an Activity
     And I go to "the homepage"
     When I click "Aula de forró na praça São Salvador"
     Then I should see "Aula de forró na praça São Salvador"
-    And I should see "Qual é a Parada?"

@@ -1,12 +1,12 @@
 doctype html
 html
   head
-    title= t 'site.title'
-    /[if IE]                                                                                                                                              
+    title Parada Carioca
+    /[if IE]
       = javascript_include_tag "http://html5shiv.googlecode.com/svn/trunk/html5.js"
     = stylesheet_link_tag :application
     = favicon_link_tag 'favicon.png', type: 'image/png'
-  body class=controller.controller_name id=controller.action_name
+  body class="#{controller.controller_name} #{controller.action_name}"
     header.login
       .row
         .meurio_and_login
@@ -23,5 +23,6 @@ html
         .row
           = link_to image_tag("marca-parada-carioca.png"), root_path
       = yield
+
     footer
     = javascript_include_tag :application

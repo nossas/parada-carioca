@@ -2,6 +2,7 @@ class Activity < ActiveRecord::Base
   attr_accessible :address, :description, :name, :price, :image, :user_id, :latitude, :longitude
 
   has_many :events
+  has_many :reviews
   belongs_to :guide, :class_name => "User", :foreign_key => "user_id"
   belongs_to :neighborhood
 
@@ -18,5 +19,17 @@ class Activity < ActiveRecord::Base
 
   def to_param
     "#{id}-#{self.name.parameterize}"
+  end
+
+  def minimum_attendees
+    events.any? ? events.minimum(:minimum_attendees) : nil
+  end
+
+  def maximum_attendees
+    events.any? ? events.maximum(:maximum_attendees) : nil
+  end
+
+  def duration
+    events.any? ? events.average(:duration).to_i : nil
   end
 end
