@@ -17,7 +17,7 @@ aside.right
 body
   font-family: "Proxima Nova", sans-serif
   line-height: normal
-  background: #f8f8f8
+  background: #efefef
 
 h1
   font-size: 2em
@@ -148,3 +148,18 @@ section.nav
   +box-shadow(lighten(gray, 15%) 0 20px 20px -20px inset)
   img
     float: left
+
+.content
+  background: #f8f8f8
+  padding-bottom: 4em
+
+footer
+  +grid-container
+  padding-top: 1em
+  padding-bottom: 1em
+  color: darken(#efefef, 25%)
+  font-size: .9em
+  border-top: 1px solid darken(#efefef, 5%)
+  .signature
+    +grid(12)
+    text-align: right
