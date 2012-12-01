@@ -6,4 +6,4 @@ li.activity
       span.name= link_to activity.name, activity
     .info
       .address.icon-location= truncate(activity.address, length: 25)
-      .price= number_to_currency(activity.price)
+      .price= content_tag :span, number_to_currency(activity.price).delete("R$ "), :class => "icon-money"
