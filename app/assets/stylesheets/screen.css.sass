@@ -142,12 +142,16 @@ header.login
 
 section.nav
   background: white
-  padding-top: 1em
-  padding-bottom: 1em
   margin-bottom: 3em
   +box-shadow(lighten(gray, 15%) 0 20px 20px -20px inset)
+  .row
+    padding-top: 1em
+    padding-bottom: 1em
+
   img
     float: left
+    &:hover
+      +rotate(-2deg)
 
 .content
   background: #f8f8f8
