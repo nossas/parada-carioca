@@ -2,6 +2,7 @@
 #
 def path path
   return root_path if path == "the homepage"
+  return activity_path(@activity) if path == "this activity page"
   raise "I don't know #{path}"
 end
 

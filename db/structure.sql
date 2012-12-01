@@ -203,7 +203,9 @@ CREATE TABLE reviews (
     id integer NOT NULL,
     activity_id integer,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    user_id integer,
+    description text
 );
 
 
@@ -404,3 +406,7 @@ INSERT INTO schema_migrations (version) VALUES ('20121130132859');
 INSERT INTO schema_migrations (version) VALUES ('20121130133043');
 
 INSERT INTO schema_migrations (version) VALUES ('20121130140045');
+
+INSERT INTO schema_migrations (version) VALUES ('20121201091257');
+
+INSERT INTO schema_migrations (version) VALUES ('20121201091348');

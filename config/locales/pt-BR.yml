@@ -205,3 +205,6 @@ pt-BR:
   activerecord:
     errors:
       <<: *errors
+  review:
+    one: avaliação
+    other: avaliações

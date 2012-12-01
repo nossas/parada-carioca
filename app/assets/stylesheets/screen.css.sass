@@ -18,6 +18,7 @@ body
   font-family: "Proxima Nova", sans-serif
   line-height: normal
   background: #efefef
+  color: darken(gray, 10%)
 
 h1
   font-size: 2em
@@ -42,7 +43,7 @@ h3
   font-size: 1em
 
 a
-  color: gray
+  color: $blue
   text-decoration: none
   &:hover
     color: $pink
@@ -58,6 +59,7 @@ strong
   font-weight: bold
 
 img
+  float: left
   margin: 0
   +border-radius(0)
 
@@ -65,6 +67,29 @@ hr
   border: none
   border-top: 1px solid lightgray
   border-bottom: 1px solid white
+
+span
+  &:before
+    margin-right: .25em
+    font-size: .8em
+  &.icon-location
+    &:before
+      color: $pink
+  &.icon-people
+    &:before
+      color: $yellow
+  &.icon-clock
+    &:before
+      color: $blue
+  &.icon-money
+    &:before
+      color: $green
+  &.icon-review
+    &:before
+      color: $pink
+
+p
+  line-height: 1.5em
 
 .btn, input[type='submit'], button
   background: $pink
@@ -167,3 +192,6 @@ footer
   .signature
     +grid(12)
     text-align: right
+
+.fb-like
+  top: 1px

@@ -25,3 +25,9 @@ Event.blueprint do
   minimum_attendees { 2 }
   maximum_attendees { 10 }
 end
+
+Review.blueprint do
+  activity  { Activity.make! }
+  user      { User.make! }
+  description { "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." }
+end

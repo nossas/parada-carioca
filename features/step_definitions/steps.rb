@@ -1,46 +1,31 @@
 include ActionView::Helpers::TextHelper
 
-Given /^there is an activity called "(.*?)" with (\d+) attendees$/ do |arg1, arg2|
-  event = Event.make! :activity => Activity.make!(:name => arg1)
-  arg2.to_i.times { event.attendees << User.make! }
+Given /^there is a guide called "(.*?)" and email "(.*?)"$/ do |arg1, arg2|
+  User.make! :first_name => arg1.split[0], :last_name => arg1.split[1], :email => arg2
 end
 
-Given(/^there is an activity called "(.*?)" created (\d+) days ago$/) do |arg1, arg2|
-  Activity.make! :name => arg1, :created_at => Time.now - arg2.to_i.days
+Given /^there is a review for this activity written by "(.*?)" (\d+) days ago$/ do |arg1, arg2|
+  Review.make! :user => User.make!(:first_name => arg1), :created_at => Time.now - arg2.to_i.days, :activity => @activity
+end
+
+Given /^I select "(.*?)" as the neighborhood filter$/ do |arg1|
+  select(arg1, :from => "by_neighborhood")
+end
+
+Then /^the (\d+)[st|nd|rd]+ review should be of "(.*?)"$/ do |arg1, arg2|
+  page.should have_css(".activity_reviews_list li.review:nth-child(#{arg1}) .review_user", :text => arg2)
 end
 
 Then /^the (\d+)[st|nd|rd]+ most recent activity should be "(.*?)"$/ do |arg1, arg2|
   page.should have_css(".recent_activities li.activity:nth-child(#{arg1})", :text => truncate(arg2, :length => 25))
 end
 
-Given /^there is a guide called "(.*?)" and email "(.*?)"$/ do |arg1, arg2|
-  User.make! :first_name => arg1.split[0], :last_name => arg1.split[1], :email => arg2
-end
-
-Given /^there is an activity of "(.*?)" with (\d+) attendees$/ do |arg1, arg2|
-  event = Event.make! :activity => Activity.make!(:guide => User.find_by_email(arg1))
-  arg2.to_i.times { event.attendees << User.make! }
-end
-
 Then /^the (\d+)[st|nd|rd]+ most popular guide should be "(.*?)"$/ do |arg1, arg2|
   page.should have_css(".popular_guides li.guide:nth-child(#{arg1})", :text => truncate(arg2, :length => 25))
 end
 
-Given /^there is an activity in "(.*?)" with (\d+) attendees$/ do |arg1, arg2|
-  event = Event.make! :activity => Activity.make!(:neighborhood => Neighborhood.find_by_name(arg1))
-  arg2.to_i.times { event.attendees << User.make! }
-end
-
 Then /^the (\d+)[st|nd|rd]+ most popular neighborhood should be "(.*?)"$/ do |arg1, arg2|
   page.should have_css(".popular_neighborhoods li.neighborhood:nth-child(#{arg1})", :text => truncate(arg2, :length => 25))
-end
-
-Given /^there is an activity called "(.*?)" in "(.*?)"$/ do |arg1, arg2|
-  Activity.make!({:name => arg1, :address => arg2}.merge(location(arg2)))
-end
-
-Given /^I select "(.*?)" as the neighborhood filter$/ do |arg1|
-  select(arg1, :from => "by_neighborhood")
 end
 
 Then /^the (\d+)[st|nd|rd]+ activity found should be "(.*?)"$/ do |arg1, arg2|

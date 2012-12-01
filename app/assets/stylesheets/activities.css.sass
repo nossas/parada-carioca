@@ -50,65 +50,46 @@ body.activities.search
       +last
 
 body.activities.show
-  .activity_title, .activity_info
+  .activity_name, .activity_info
     +grid(8)
-  .activity_price
+  .activity_price, .activity_reviews
     +grid(2)
-  .activity_reviews
-    +grid(2)
-    +last
   .activity_panel
     +grid(4)
+  .activity_reviews, .activity_panel
     +last
-  .activity_title, .activity_price, .activity_reviews
-    color: darken(gray, 10%)
+  .activity_name, .activity_price, .activity_reviews, .activity_share, img.activity_cover, .activity_description p, .activity_reviews_list li.review
     margin-bottom: 1em
-  font-size: .9em
-  h1
-    font-size: 1.5em  
-  h2
-    color: $blue
-    margin-bottom: .5em
-  span
-    &:before
-      margin-right: .25em
-  .activity_title
+    font-size: .9em
+  .activity_name, .activity_price, .activity_reviews
+    h1, span.icon-money, span.icon-review
+      font-size: 1.5em  
+      font-weight: bold
+  .activity_name
     span
       margin-right: 1em
-      &.icon-location
-        &:before
-          color: $pink
-      &.icon-people
-        &:before
-          color: $yellow
-      &.icon-clock
-        &:before
-          color: $blue
-  span.icon-money, span.icon-review
+  .activity_price span.icon-money, .activity_reviews span.icon-review
     display: block
-    font-size: 1.5em
-    font-weight: bold
-    &:before
-      color: $green
-      font-size: .7em
-  span.icon-review
-    &:before
-      color: $pink
-  .activity_image
-    margin-bottom: 1em
-    overflow: hidden
-    img
-      float: left
-  .activity_share
-    margin-bottom: 1em
-    .fb-like
-      top: 2px
   .activity_description
-    p
-      line-height: 1.5em
-      color: darken(gray, 10%)
+    margin-bottom: 3em
+    h2
+      color: $blue
+  .activity_reviews_list
+    span.icon-review
+      display: block
       margin-bottom: 1em
-                      
+    li.review
+      background: white
+      padding: 1em
+      margin-left: 2px
+      +box-shadow(lighten(gray, 10%) 0 1px 3px)
+      .review_details
+        margin-left: 60px
+        .review_user, .review_description
+          margin-bottom: 1em
+        .review_created_at
+          color: lighten(gray, 20%)
+
 section.featured_activities, ul.search_result
   li.activity         
     +grid(4)
