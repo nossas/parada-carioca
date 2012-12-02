@@ -28,8 +28,12 @@ Then /^the (\d+)[st|nd|rd]+ most popular neighborhood should be "(.*?)"$/ do |ar
   page.should have_css(".popular_neighborhoods li.neighborhood:nth-child(#{arg1})", :text => truncate(arg2, :length => 25))
 end
 
-Then /^the (\d+)[st|nd|rd]+ activity found should be "(.*?)"$/ do |arg1, arg2|
+Then /^the (\d+)[st|nd|rd]+ activity found in the neighborhood should be "(.*?)"$/ do |arg1, arg2|
   page.should have_css(".search_result li.activity:nth-child(#{arg1})", :text => arg2)
+end
+
+Then /^the (\d+)[st|nd|rd]+ activity found nearby should be "(.*?)"$/ do |arg1, arg2|
+  page.should have_css(".nearby_result li.activity:nth-child(#{arg1})", :text => arg2)
 end
 
 Then(/^show me the page$/)                      { save_and_open_page }

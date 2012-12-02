@@ -2,5 +2,14 @@ section.search
   .row= render :partial => "search_form"
 
 section
-  .row
-    ul.search_result= render @activities
+  - if @activities.any?
+    .row
+      ul.search_result= render @activities
+  - if @nearby_activities.any?
+    .row
+      h2 Nas proximidades do bairro #{content_tag :strong, @neighborhood.name}
+      ul.nearby_result
+        = render @nearby_activities
+  - if @activities.empty? && @nearby_activities.empty?
+    .row
+      .no_results Nenhuma atividade encontrada no bairro #{content_tag :strong, @neighborhood.name}

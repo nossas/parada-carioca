@@ -40,14 +40,19 @@ body.activities.index
       +last
 
 body.activities.search
+  h2, .no_results
+    +grid(12)
+  li.activity
+    &:nth-child(3n+0)
+      +last
   section.search
     background: lighten(lightgray, 10%)
     margin-bottom: 3em
     .row
       overflow: visible
-  li.activity
-    &:nth-child(3n+0)
-      +last
+  .no_results
+    text-align: center
+    font-size: 1.5em
 
 body.activities.show
   .activity_name, .activity_info
@@ -93,7 +98,7 @@ body.activities.show
         display: block
         font-size: .8em
 
-section.featured_activities, ul.search_result
+section.featured_activities, ul.search_result, ul.nearby_result
   li.activity         
     +grid(4)
     &:last-child

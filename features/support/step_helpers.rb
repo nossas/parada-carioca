@@ -18,8 +18,25 @@ def component component
 end
 
 def location location
-  return {:latitude => -22.920097, :longitude => -43.17009}   if location == "Marina da Glória"
-  return {:latitude => -22.967126, :longitude => -43.226759}  if location == "Jardim Botânico"
-  return {:latitude => -22.93399, :longitude => -43.180604}   if location == "Praça São Salvador"
-  raise "I don't know where is #{location}"
+  if location == "Marina da Glória"
+    return {
+      :latitude => -22.920097, 
+      :longitude => -43.17009, 
+      :neighborhood => Neighborhood.find_by_name("Glória")
+    }
+  elsif location == "Jardim Botânico"
+    return {
+      :latitude => -22.967126, 
+      :longitude => -43.226759,
+      :neighborhood => Neighborhood.find_by_name("Jardim Botânico")
+    }
+  elsif location == "Praça São Salvador"
+    return {
+      :latitude => -22.93399, 
+      :longitude => -43.180604,
+      :neighborhood => Neighborhood.find_by_name("Laranjeiras")
+    }
+  else
+    raise "I don't know where is #{location}"
+  end
 end

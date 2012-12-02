@@ -13,8 +13,8 @@ class Activity < ActiveRecord::Base
   
   mount_uploader :image, ImageUploader
 
-  def self.by_distance latitude, longitude
-    order("(SELECT earth_distance(ll_to_earth(activities.latitude::numeric, activities.longitude::numeric), ll_to_earth(#{latitude}, #{longitude})))")
+  def self.by_distance latitude, longitude, distance = 3000
+    where("(earth_distance(ll_to_earth(activities.latitude::numeric, activities.longitude::numeric), ll_to_earth(#{latitude}, #{longitude}))) <= ?", distance).order("(SELECT earth_distance(ll_to_earth(activities.latitude::numeric, activities.longitude::numeric), ll_to_earth(#{latitude}, #{longitude})))")
   end
 
   def to_param

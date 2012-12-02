@@ -10,6 +10,7 @@ class ActivitiesController < ApplicationController
 
   def search
     @neighborhood = Neighborhood.find_by_id(params[:by_neighborhood])
-    @activities = Activity.by_distance(@neighborhood.latitude, @neighborhood.longitude)
+    @activities = Activity.find_all_by_neighborhood_id(params[:by_neighborhood])
+    @nearby_activities = Activity.by_distance(@neighborhood.latitude, @neighborhood.longitude) - @activities
   end
 end

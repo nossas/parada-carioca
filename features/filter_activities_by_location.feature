@@ -10,6 +10,5 @@ Feature: Filter activities by location
     And I go to "the homepage"
     And I select "Laranjeiras" as the neighborhood filter
     When I press "Buscar Parada"
-    Then the 1st activity found should be "Aula de Dança na Praça"
-    And the 2nd activity found should be "Role de Barco na Baía de Guanabara"
-    And the 3rd activity found should be "Gastronomia no Jardim"
+    Then the 1st activity found in the neighborhood should be "Aula de Dança na Praça"
+    And the 1st activity found nearby should be "Role de Barco na Baía de Guanabara"
