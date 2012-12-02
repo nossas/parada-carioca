@@ -65,14 +65,14 @@ CREATE TABLE activities (
     name character varying(255),
     description text,
     user_id integer,
-    price double precision,
     address character varying(255),
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     image character varying(255),
     neighborhood_id integer,
     latitude double precision,
-    longitude double precision
+    longitude double precision,
+    price double precision
 );
 
 
@@ -107,7 +107,8 @@ CREATE TABLE events (
     updated_at timestamp without time zone NOT NULL,
     minimum_attendees integer,
     maximum_attendees integer,
-    duration integer
+    duration integer,
+    price double precision
 );
 
 
@@ -410,3 +411,5 @@ INSERT INTO schema_migrations (version) VALUES ('20121130140045');
 INSERT INTO schema_migrations (version) VALUES ('20121201091257');
 
 INSERT INTO schema_migrations (version) VALUES ('20121201091348');
+
+INSERT INTO schema_migrations (version) VALUES ('20121201121531');
