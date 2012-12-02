@@ -28,7 +28,7 @@ section
         span.icon-review #{content_tag :span, @activity.reviews.count} #{t('review', :count => @activity.reviews.count)}
         ul= render @activity.reviews.order("created_at DESC")
     .activity_panel
-      .activity_guide
+      .activity_guide.box
         = image_tag @activity.guide.avatar
         .activity_guide_info
           .activity_guide_name= @activity.guide.name
