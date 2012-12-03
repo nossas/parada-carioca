@@ -19,7 +19,7 @@ User.blueprint do
 end
 
 Event.blueprint do
-  date              { Time.now }
+  date              { Time.now + 1.day }
   activity          { Activity.make! }
   duration          { 5 }
   minimum_attendees { 2 }

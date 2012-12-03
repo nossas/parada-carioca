@@ -12,6 +12,10 @@ Given /^I select "(.*?)" as the neighborhood filter$/ do |arg1|
   select(arg1, :from => "by_neighborhood")
 end
 
+Given /^there is an event for this activity$/ do
+  @event = Event.make! :activity => @activity
+end
+
 Then /^the (\d+)[st|nd|rd]+ review should be of "(.*?)"$/ do |arg1, arg2|
   page.should have_css(".activity_reviews_list li.review:nth-child(#{arg1}) .review_user", :text => arg2)
 end
@@ -36,10 +40,15 @@ Then /^the (\d+)[st|nd|rd]+ activity found nearby should be "(.*?)"$/ do |arg1, 
   page.should have_css(".nearby_result li.activity:nth-child(#{arg1})", :text => arg2)
 end
 
+Then /^I should see the participation form$/ do
+  page.should have_css("form.new_participation")
+end
+
 Then(/^show me the page$/)                      { save_and_open_page }
 When(/^I go to "(.*?)"$/)                       { |arg1| visit path(arg1) }
 Then(/^the first activity should be "(.*?)"$/)  { |arg1| page.should have_css('ol.activities li:first-child', :text => arg1) }
 Then(/^I should see "(.*?)"$/)                  { |arg1| page.should have_content(arg1) }
+Then(/^I should not see "(.*?)"$/)              { |arg1| page.should_not have_content(arg1) }
 When(/^I click "(.*?)"$/)                       { |arg1| click_link link(arg1) }
 Then(/^I should see "(.*?)" component$/)        { |arg1| page.should have_css(component(arg1)) }
 Then(/^I should not see "(.*?)" component$/)    { |arg1| page.should_not have_css(component(arg1)) }

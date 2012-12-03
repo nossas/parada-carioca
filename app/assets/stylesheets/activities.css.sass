@@ -63,7 +63,7 @@ body.activities.show
     +grid(4)
   .activity_reviews, .activity_panel
     +last
-  .activity_name, .activity_price, .activity_reviews, .activity_share, img.activity_cover, .activity_description p, .activity_reviews_list li.review
+  .activity_name, .activity_price, .activity_reviews, .activity_share, img.activity_cover, .activity_description p, .activity_reviews_list li.review, .activity_events
     margin-bottom: 1em
     font-size: .9em
   .activity_name, .activity_price, .activity_reviews
@@ -97,6 +97,47 @@ body.activities.show
       span.icon-review
         display: block
         font-size: .8em
+  .activity_events
+    .no_events, .event label, .event_attendees
+      display: block
+      border: lightgray 1px solid
+      overflow: hidden
+      padding: .5em
+    .no_events
+      text-align: center
+    .event
+      margin-bottom: 1.5em
+      &:last-child
+        margin-bottom: 0
+      label
+        &:hover
+          background: lighten($blue, 45%)
+      span
+        float: left
+        font-weight: bold
+        &.event_date
+          width: 60px
+          input
+            margin: 0 5px 0 0
+        &.event_price
+          width: 100px
+        &.remaining_to_maximum, &.remaining_to_minimum
+          float: right
+          color: $green
+        &.remaining_to_minimum
+          color: darken($yellow, 15%)
+      .event_attendees
+        border-top: 0
+        overflow: hidden
+        background: #efefef
+        span
+          margin-left: .25em
+          font-weight: normal
+          font-size: .9em
+          line-height: 25px
+        img
+          width: 25px
+          margin-right: 1px
 
 section.featured_activities, ul.search_result, ul.nearby_result
   li.activity         

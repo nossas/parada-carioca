@@ -1,5 +1,5 @@
 li.review.box
-  = image_tag review.user.avatar
+  = image_tag review.user.avatar, :title => review.user.name
   .review_details
     .review_user= link_to review.user.name, "#"
     .review_description= review.description
