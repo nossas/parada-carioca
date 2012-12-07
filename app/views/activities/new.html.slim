@@ -1,0 +1,34 @@
+section
+  .row
+    h1 Informações Básicas
+    = form_for @activity do |form|
+      .box
+        .field
+          = form.label :name
+          = form.text_field :name
+          span.error= @activity.errors[:name].join(", ")
+        .field
+          = form.label :description
+          = form.text_area :description
+          span.error= @activity.errors[:description].join(", ")
+        .field
+          = form.label :address
+          = form.text_field :address, :placeholder => ""
+          span.error= @activity.errors[:latitude].join(", ")
+          = form.hidden_field :latitude
+          = form.hidden_field :longitude
+          #map_canvas
+        .field
+          = form.label :neighborhood_id
+          = form.select :neighborhood_id, options_from_collection_for_select(Neighborhood.order(:name), "id", "name")
+        .field
+          = form.label :image
+          = form.file_field :image
+          span.error= @activity.errors[:image].join(", ")
+        .field
+          = form.label :price
+          = form.text_field :price, :maxlength => 10
+          span.error= @activity.errors[:price].join(", ")
+        hr
+        .field
+          = form.submit

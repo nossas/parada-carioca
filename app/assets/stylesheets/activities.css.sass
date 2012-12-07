@@ -139,6 +139,35 @@ body.activities.show
           width: 25px
           margin-right: 1px
 
+body.activities.new, body.activities.create
+  h1, form
+    +grid(8)
+    +grid-prefix(2)
+  h1
+    margin-bottom: .5em
+  form
+    label
+      display: block
+    input[type="text"], textarea
+      width: 100%
+      font-size: 1.25em
+      padding: .25em
+      +box-sizing(border-box)
+    textarea
+      font-size: .8em
+      height: 100px
+    input#activity_price, select#activity_neighborhood_id, input#activity_image
+      width: auto
+    .field
+      margin-bottom: 1.5em
+      &:last-child
+        margin: 0
+        text-align: center
+  #map_canvas
+    width: 100%
+    height: 250px
+    margin-top: .5em
+
 section.featured_activities, ul.search_result, ul.nearby_result
   li.activity         
     +grid(4)

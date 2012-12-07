@@ -49,17 +49,22 @@ a
     color: $pink
     text-decoration: underline
 
-a, select, input
+a, select, input, textarea
   outline: none
 
-select
-  font-size: 1em
+textarea
+  resize: none
 
 strong
   font-weight: bold
 
 label, input[type='radio']
   cursor: pointer
+
+input[type='text'], textarea
+  background: #f8f8f8
+  border: none
+  +box-shadow(lightgray 1px 1px 1px inset)
 
 img
   float: left
@@ -177,11 +182,15 @@ section.nav
   .row
     padding-top: 1em
     padding-bottom: 1em
-
   img
     float: left
     &:hover
       +rotate(-2deg)
+  .btn
+    float: right
+    font-size: .7em
+    padding: .75em 1.75em
+    margin-top: 17px
 
 .content
   background: #f8f8f8
@@ -207,4 +216,9 @@ footer
   margin-left: 1px
   margin-right: 1px
   margin-top: 1px
+  margin-bottom: 3px
   +box-shadow(lighten(gray, 10%) 0 1px 3px)
+
+span.error
+  color: red
+  font-size: .9em

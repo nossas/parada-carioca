@@ -3,7 +3,10 @@ ParadaCarioca::Application.routes.draw do
   
   get '/activities/search', :to => 'activities#search'
 
-  resources :activities, only: [:index, :show]
+  resources :activities, only: [:index, :show, :new, :create] do
+    resources :events, only: [:index]
+  end
+
   resources :participations, only: [:create]
 
   get '/auth/facebook', as: :facebook_auth

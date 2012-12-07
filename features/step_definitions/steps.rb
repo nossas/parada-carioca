@@ -16,6 +16,10 @@ Given /^there is an event for this activity$/ do
   @event = Event.make! :activity => @activity
 end
 
+Given /^I'm logged in$/ do
+  visit "/auth/facebook"
+end
+
 Then /^the (\d+)[st|nd|rd]+ review should be of "(.*?)"$/ do |arg1, arg2|
   page.should have_css(".activity_reviews_list li.review:nth-child(#{arg1}) .review_user", :text => arg2)
 end
@@ -44,6 +48,20 @@ Then /^I should see the participation form$/ do
   page.should have_css("form.new_participation")
 end
 
+Then /^I should see the awaiting moderation warning$/ do
+  page.should have_css(".awaiting_moderation_warning")
+end
+
+Given /^I set the activity location in "(.*?)"$/ do |arg1|
+  fill_in "Local de Encontro", :with => arg1
+  page.execute_script("$('#activity_latitude').val('-22.998634')")
+  page.execute_script("$('#activity_longitude').val('-43.269485')")
+end
+
+Given /^I attach an image to "(.*?)"$/ do |arg1|
+  attach_file arg1, File.dirname(__FILE__) + "/../support/activity.jpg"
+end
+
 Then(/^show me the page$/)                      { save_and_open_page }
 When(/^I go to "(.*?)"$/)                       { |arg1| visit path(arg1) }
 Then(/^the first activity should be "(.*?)"$/)  { |arg1| page.should have_css('ol.activities li:first-child', :text => arg1) }
@@ -53,3 +71,6 @@ When(/^I click "(.*?)"$/)                       { |arg1| click_link link(arg1) }
 Then(/^I should see "(.*?)" component$/)        { |arg1| page.should have_css(component(arg1)) }
 Then(/^I should not see "(.*?)" component$/)    { |arg1| page.should_not have_css(component(arg1)) }
 When(/^I press "(.*?)"$/)                       { |arg1| click_button arg1 }
+Given(/^I fill "(.*?)" with "(.*?)"$/)          { |arg1, arg2| fill_in(arg1, :with => arg2) }
+Then(/^I should be in "(.*?)"$/)                { |arg1| current_path.should be_== path(arg1) }
+Given(/^I select "(.*?)" as "(.*?)"$/)          { |arg1, arg2| select(arg1, :from => arg2) }

@@ -1,5 +1,5 @@
 class Activity < ActiveRecord::Base
-  attr_accessible :address, :description, :name, :price, :image, :user_id, :latitude, :longitude, :neighborhood
+  attr_accessible :address, :description, :name, :price, :image, :user_id, :latitude, :longitude, :neighborhood, :neighborhood_id
 
   has_many :events
   has_many :reviews
@@ -9,7 +9,7 @@ class Activity < ActiveRecord::Base
   scope :by_most_recent,  order("created_at DESC")
   scope :by_popularity,   order("(SELECT count(*) FROM participations JOIN events ON events.activity_id = activities.id WHERE participations.event_id = events.id) DESC")
 
-  validates :address, :description, :name, :price, :user_id, :presence => true
+  validates :address, :description, :name, :price, :user_id, :latitude, :longitude, :neighborhood_id, :image, :presence => true
   
   mount_uploader :image, ImageUploader
 
@@ -31,5 +31,9 @@ class Activity < ActiveRecord::Base
 
   def duration
     events.any? ? events.average(:duration).to_i : nil
+  end
+
+  def awaiting_moderation?
+    accepted.nil?
   end
 end

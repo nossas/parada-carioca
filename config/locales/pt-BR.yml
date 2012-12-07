@@ -124,6 +124,19 @@ pt-BR:
       header:
         one: ! 'Não foi possível gravar %{model}: 1 erro'
         other: ! 'Não foi possível gravar %{model}: %{count} erros.'
+    models:
+      activity:
+        attributes:
+          name:
+            blank: "da um nomezinho bonitinho pra parada"
+          description:
+            blank: "queremos saber do que se trata a sua parada"
+          latitude: 
+            blank: "escolha um endereço sugerido por nós"
+          image:
+            blank: "uma fotinho só vai"
+          price:
+            blank: "quanto (em média)?"
   helpers:
     select:
       prompt: Por favor selecione
@@ -131,6 +144,8 @@ pt-BR:
       create: Criar %{model}
       submit: Salvar %{model}
       update: Atualizar %{model}
+      activity:
+        create: Enviar Parada para Moderação
   number:
     currency:
       format:
@@ -206,6 +221,14 @@ pt-BR:
   activerecord:
     errors:
       <<: *errors
+    attributes:
+      activity:
+        name: "Nome da Parada"
+        description: "Descrição"
+        address: "Local de Encontro"
+        price: "Preço Médio (R$)"
+        image: "Foto"
+        neighborhood_id: "Bairro"
   review:
     one: avaliação
     other: avaliações

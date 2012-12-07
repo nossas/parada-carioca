@@ -72,7 +72,8 @@ CREATE TABLE activities (
     neighborhood_id integer,
     latitude double precision,
     longitude double precision,
-    price double precision
+    price double precision,
+    accepted boolean
 );
 
 
@@ -413,3 +414,5 @@ INSERT INTO schema_migrations (version) VALUES ('20121201091257');
 INSERT INTO schema_migrations (version) VALUES ('20121201091348');
 
 INSERT INTO schema_migrations (version) VALUES ('20121201121531');
+
+INSERT INTO schema_migrations (version) VALUES ('20121206214230');
