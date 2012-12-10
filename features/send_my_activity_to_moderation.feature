@@ -12,7 +12,7 @@ Feature: send my activity to moderation
     And I fill "Descrição" with "Voar voar, subir subir..."
     And I set the activity location in "Estrada do Joá próximo ao número 450"
     And I select "São Conrado" as "Bairro"
-    And I fill "Preço Médio" with "300"
+    And I fill "Preço Médio por Pessoa (R$)" with "300"
     When I press "Enviar Parada para Moderação"
     Then I should be in "the events page of the new activity"
     And I should see the awaiting moderation warning
@@ -28,4 +28,8 @@ Feature: send my activity to moderation
     And I should see "uma fotinho só vai"
     And I should see "quanto (em média)?"
 
+  @omniauth_test
   Scenario: when I'm not logged in
+    Given I go to "the homepage"
+    When I click "Organizar Parada"
+    Then I should be in "the new activity page"

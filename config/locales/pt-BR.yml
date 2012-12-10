@@ -226,7 +226,7 @@ pt-BR:
         name: "Nome da Parada"
         description: "Descrição"
         address: "Local de Encontro"
-        price: "Preço Médio (R$)"
+        price: "Preço Médio por Pessoa (R$)"
         image: "Foto"
         neighborhood_id: "Bairro"
   review:

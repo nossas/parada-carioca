@@ -38,3 +38,4 @@ end
 gem 'jquery-rails'
 gem 'select2-rails'
 gem 'jquery-qtip2-rails'
+gem "cancan"
