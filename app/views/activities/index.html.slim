@@ -15,19 +15,20 @@ section.top_lists
       h3.icon-top-places Bairros Top
       ol.neighborhoods
         - @popular_neighborhoods.each_with_index do |neighborhood, index|
-          li.neighborhood #{content_tag :span, index + 1}#{truncate(neighborhood.name, :length => 25)}
-    .popular_guides
-      h3.icon-top-guides Guias Top
-      ol.guides
-        - @popular_guides.each_with_index do |guide, index|
-          li.guide #{content_tag :span, index + 1}#{truncate(guide.name, :length => 25)}
+          li.neighborhood 
+            = link_to activities_search_path(:by_neighborhood => neighborhood.id) do
+              #{content_tag :span, index + 1}#{truncate(neighborhood.name, :length => 35)}
     .popular_activities
       h3.icon-popular-activities Paradas Top
       ol.activities
         - @popular_activities.each_with_index do |activity, index|
-          li.activity #{content_tag :span, index + 1}#{truncate(activity.name, :length => 25)}
+          li.activity
+            = link_to activity do
+              #{content_tag :span, index + 1}#{truncate(activity.name, :length => 35)}
     .recent_activities
       h3.icon-new-activity Novas Paradas
       ol.activities
         - @recent_activities.each_with_index do |activity, index|
-          li.activity #{content_tag :span, index + 1}#{truncate(activity.name, :length => 25)}
+          li.activity
+            = link_to activity do
+              #{content_tag :span, index + 1}#{truncate(activity.name, :length => 35)}

@@ -4,7 +4,6 @@ class ActivitiesController < ApplicationController
   
   before_filter only: [:index] do 
     @recent_activities = Activity.by_most_recent.limit(5)
-    @popular_guides = User.by_popularity.limit(5)
     @popular_activities = Activity.by_popularity.limit(5)
     @popular_neighborhoods = Neighborhood.by_popularity.limit(5)
   end
