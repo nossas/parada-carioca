@@ -1,7 +1,13 @@
 section
   .row
-    - if @activity.awaiting_moderation?
-      .awaiting_moderation_warning Já estamos analisando a sua parada! Em breve daremos sinal verde para que as pessoas se inscrevam nela.
-    .menu= link_to "Criar Evento", new_activity_event_path(@activity), :rel => "facebox"
-    - if flash[:event_created_notice]
-      .event_created_notice= flash[:event_created_notice]
+    .header
+      h1= @activity.name
+      - if @activity.awaiting_moderation?
+        .awaiting_moderation_warning Aguardando moderação
+    .activity_menu
+      = link_to "Calendário", activity_events_path(@activity), :class => "icon-calendar #{controller.action_name == "index" ? 'selected' : ''}"
+    .activity_content
+      .box
+        - if flash[:event_created_notice]
+          .event_created_notice= flash[:event_created_notice]
+        = link_to "Criar Evento", new_activity_event_path(@activity), :rel => "facebox", :class => "btn icon-create"

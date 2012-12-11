@@ -9,7 +9,7 @@ class EventsController < ApplicationController
 
   def create
     create! do |success, failure|
-      success.html { redirect_to activity_events_path(@activity), :flash => {:event_created_notice => "Novo evento da parada #{@event.activity.name} criado para #{l @event.date}"} }
+      success.html { redirect_to activity_events_path(@activity), :flash => {:event_created_notice => "Novo evento criado para #{l @event.date}"} }
       failure.html { render :index }
     end
   end
