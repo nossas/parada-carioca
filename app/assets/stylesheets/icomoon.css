@@ -37,7 +37,7 @@
 .icon-top-guias:before {
 	content: "\e000";
 }
-.icon-top-bairros:before {
+.icon-top-places:before {
 	content: "\e00b";
 }
 .icon-search:before {
@@ -67,7 +67,7 @@
 .icon-pencil:before {
 	content: "\e014";
 }
-.icon-paradas-populares:before {
+.icon-popular-activities:before {
 	content: "\e015";
 }
 .icon-novas-paradas:before {

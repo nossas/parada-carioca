@@ -26,7 +26,7 @@ section.top_lists
             = link_to activity do
               #{content_tag :span, index + 1}#{truncate(activity.name, :length => 35)}
     .recent_activities
-      h3.icon-new-activity Novas Paradas
+      h3.icon-novas-paradas Novas Paradas
       ol.activities
         - @recent_activities.each_with_index do |activity, index|
           li.activity
