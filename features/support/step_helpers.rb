@@ -5,6 +5,7 @@ def path path
   return activity_path(@activity) if path == "this activity page"
   return activity_events_path(Activity.order(:id).last) if path == "the events page of the new activity"
   return new_activity_path if path == "the new activity page"
+  return activity_events_path(@activity) if path == "the events page of this activity"
   raise "I don't know #{path}"
 end
 

@@ -27,6 +27,7 @@ section
       .activity_reviews_list
         span.icon-review #{content_tag :span, @activity.reviews.count} #{t('review', :count => @activity.reviews.count)}
         ul= render @activity.reviews.order("created_at DESC")
+
     .activity_panel
       .activity_events.box
         - if @activity.events.upcoming.empty?
@@ -50,7 +51,7 @@ section
                     - event.attendees.each do |attendee|
                       = image_tag attendee.avatar, :title => attendee.name
                     span +#{event.attendees.count} #{t('going', :count => event.attendees.count)}
-                  
+
       .activity_guide.box
         = image_tag @activity.guide.avatar, :title => @activity.guide.name
         .activity_guide_info

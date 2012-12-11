@@ -1,0 +1,19 @@
+= form_for [@activity, @event] do |form|
+  .field
+    = form.label :date
+    = form.text_field :date, :class => "datepicker"
+  .field
+    = form.label :price
+    = form.text_field :price, :maxlength => 10
+  .field
+    span Participantes
+    = form.label :minimum_attendees
+    = form.number_field :minimum_attendees, :min => 1, :max => 50
+    = form.label :maximum_attendees
+    = form.number_field :maximum_attendees, :min => 1, :max => 50
+  .field
+    = form.label :duration
+    = form.select :duration, (1..24).to_a
+    | horas
+  hr
+  .field= form.submit

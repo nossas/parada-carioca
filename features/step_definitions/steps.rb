@@ -58,6 +58,14 @@ Given /^I attach an image to "(.*?)"$/ do |arg1|
   attach_file arg1, File.dirname(__FILE__) + "/../support/activity.jpg"
 end
 
+Given /^I fill "(.*?)" with next week$/ do |arg1|
+  fill_in(arg1, :with => (Time.now + 1.week).strftime("%d/%m/%Y %H:%M"))
+end
+
+Then /^I should see the created event message$/ do
+  page.should have_css(".event_created_notice")
+end
+
 Then(/^show me the page$/)                      { save_and_open_page }
 When(/^I go to "(.*?)"$/)                       { |arg1| visit path(arg1) }
 Then(/^the first activity should be "(.*?)"$/)  { |arg1| page.should have_css('ol.activities li:first-child', :text => arg1) }

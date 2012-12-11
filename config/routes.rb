@@ -4,7 +4,7 @@ ParadaCarioca::Application.routes.draw do
   get '/activities/search', :to => 'activities#search'
 
   resources :activities, only: [:index, :show, :new, :create] do
-    resources :events, only: [:index]
+    resources :events, only: [:index, :create, :new]
   end
 
   resources :participations, only: [:create]

@@ -3,6 +3,7 @@ Feature: Login with my Facebook account
   As a guide
   I want to login with my Facebook account
 
+  @omniauth_test
   Scenario: 
     Given I go to "the homepage"
     When I click "the Facebook login button"

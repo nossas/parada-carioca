@@ -9,6 +9,7 @@ class Event < ActiveRecord::Base
   scope :available, where("(SELECT count(*) FROM participations WHERE participations.event_id = events.id) < events.maximum_attendees")
   
   validates :activity, :date, :price, :minimum_attendees, :maximum_attendees, :presence => true
+  validate :date_cannot_be_in_the_past
 
   def remaining_to_maximum
     maximum_attendees - participations.count
@@ -20,5 +21,11 @@ class Event < ActiveRecord::Base
   
   def minimum_reached?
     participations.count >= minimum_attendees
+  end
+
+  private
+
+  def date_cannot_be_in_the_past
+    errors.add(:date, "can't be in the past") if date && date < Time.now
   end
 end

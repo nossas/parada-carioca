@@ -1,2 +1,7 @@
-- if @activity.awaiting_moderation?
-  .awaiting_moderation_warning Já estamos analisando a sua parada! Em breve daremos sinal verde para que as pessoas se inscrevam nela.
+section
+  .row
+    - if @activity.awaiting_moderation?
+      .awaiting_moderation_warning Já estamos analisando a sua parada! Em breve daremos sinal verde para que as pessoas se inscrevam nela.
+    .menu= link_to "Criar Evento", new_activity_event_path(@activity), :rel => "facebox"
+    - if flash[:event_created_notice]
+      .event_created_notice= flash[:event_created_notice]

@@ -1,2 +1,8 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$(function(){
+  $("#create_event").hide();
+  $('a[rel*=facebox]').facebox();
+  $(document).bind('reveal.facebox', function() {
+    $('.datepicker').datetimepicker({dateFormat: "dd/mm/yy", minDate: new Date()});
+    $("#event_price").maskMoney({allowZero: true});
+  });
+});

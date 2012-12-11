@@ -221,6 +221,8 @@ pt-BR:
   activerecord:
     errors:
       <<: *errors
+    models:
+      event: "Evento"
     attributes:
       activity:
         name: "Nome da Parada"
@@ -229,6 +231,12 @@ pt-BR:
         price: "Preço Médio por Pessoa (R$)"
         image: "Foto"
         neighborhood_id: "Bairro"
+      event:
+        date: "Data e Hora de Início"
+        minimum_attendees: "mín"
+        maximum_attendees: "máx"
+        duration: "Duração"
+        price: "Preço por Pessoa (R$)"
   review:
     one: avaliação
     other: avaliações

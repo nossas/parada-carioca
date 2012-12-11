@@ -64,6 +64,7 @@ label, input[type='radio']
 input[type='text'], textarea
   background: #f8f8f8
   border: none
+  padding: .25em
   +box-shadow(lightgray 1px 1px 1px inset)
 
 img
@@ -76,7 +77,7 @@ hr
   border-top: 1px solid lightgray
   border-bottom: 1px solid white
 
-span
+span, label
   &:before
     margin-right: .25em
     font-size: .8em
@@ -222,3 +223,17 @@ footer
 span.error
   color: red
   font-size: .9em
+
+table
+  td
+    padding: .25em
+
+.ui-datepicker
+  font-size: .7em
+  .ui-timepicker-div
+    padding: .5em
+    .ui_tpicker_time
+      margin-bottom: .5em
+
+#facebox .content
+  padding: 0

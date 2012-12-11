@@ -1,0 +1,27 @@
+body.events.index, body.events.create
+  form.new_event
+    padding: 10px
+    .field
+      margin-bottom: .5em
+      &:last-child
+        margin: 0
+        text-align: center
+    input[type='submit']
+      margin: 0
+    label, span
+      display: inline-block
+      width: 170px
+      text-align: right
+      margin-right: 1em
+    label[for='event_minimum_attendees'], label[for='event_maximum_attendees']
+      display: inline
+      margin: 0
+    label[for='event_date']
+      text-align: left
+      display: block
+    input[name='event[date]'], input[name='event[price]']
+      font-size: 1.5em
+    input[type='number']
+      margin-right: 1em
+    hr
+      margin-top: 2em
