@@ -6,11 +6,11 @@
     = form.label :price
     = form.text_field :price, :maxlength => 10
   .field
-    span Participantes
     = form.label :minimum_attendees
-    = form.number_field :minimum_attendees, :min => 1, :max => 50
+    = form.select :minimum_attendees, (1..25).to_a
+  .field
     = form.label :maximum_attendees
-    = form.number_field :maximum_attendees, :min => 1, :max => 50
+    = form.select :maximum_attendees, (1..25).to_a
   .field
     = form.label :duration
     = form.select :duration, (1..24).to_a

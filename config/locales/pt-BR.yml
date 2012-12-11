@@ -233,8 +233,8 @@ pt-BR:
         neighborhood_id: "Bairro"
       event:
         date: "Data e Hora de Início"
-        minimum_attendees: "mín"
-        maximum_attendees: "máx"
+        minimum_attendees: "Mínimo de Participantes"
+        maximum_attendees: "Máximo de Participantes"
         duration: "Duração"
         price: "Preço por Pessoa (R$)"
   review:

@@ -9,8 +9,8 @@ Feature: create new event to an activity
     And I go to "the events page of this activity"
     And I click "Criar Evento"
     And I fill "Data e Hora de Início" with next week
-    And I fill "mín" with "2"
-    And I fill "máx" with "10"
+    And I select "1" as "Mínimo de Participantes"
+    And I select "10" as "Máximo de Participantes"
     And I select "8" as "Duração"
     And I fill "Preço por Pessoa (R$)" with "100"
     When I press "Criar Evento"
