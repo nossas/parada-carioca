@@ -23,7 +23,20 @@ html
         .row
           .logo= link_to image_tag("marca-parada-carioca.png"), root_path
           .menu= link_to "Organizar Parada", new_activity_path, :class => "btn icon-new-activity"
-      = yield
+
+      - if content_for?(:activity_content)
+        section
+          .row
+            .header
+              h1= @activity.name
+              - if @activity.awaiting_moderation?
+                .awaiting_moderation_warning Aguardando moderação
+            .activity_menu
+              = link_to "Calendário", activity_events_path(@activity), :class => "icon-calendar #{controller.action_name == "index" ? 'selected' : ''}"
+            .activity_content
+              .box= yield(:activity_content)
+      - else
+        = yield
 
     footer
       .row
