@@ -19,4 +19,5 @@
 //= require jquery.ui.all
 //= require jquery-ui-timepicker-addon.js
 //= require ui.datepicker-pt-BR.js
+//= require jquery.validate
 //= require_tree .

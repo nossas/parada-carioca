@@ -15,3 +15,11 @@ Feature: create new event to an activity
     And I fill "Preço por Pessoa (R$)" with "100"
     When I press "Criar Evento"
     Then I should see the created event message
+    
+  @omniauth_test @javascript
+  Scenario: when I leave all the fields blank
+    Given there is an activity
+    And I go to "the events page of this activity"
+    And I click "Criar Evento"
+    When I press "Criar Evento"
+    Then I should see "escolha uma data para a realização do evento"

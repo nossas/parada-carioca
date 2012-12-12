@@ -41,3 +41,4 @@ gem 'jquery-qtip2-rails'
 gem "cancan"
 gem 'facebox-rails'
 gem 'jquery-ui-rails'
+gem 'jquery-validation-rails'
