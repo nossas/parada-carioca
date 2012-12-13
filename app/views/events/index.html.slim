@@ -1,4 +1,4 @@
 = content_for(:activity_content) do
   - if flash[:event_created_notice]
     .event_created_notice= flash[:event_created_notice]
-  = link_to "Criar Evento", new_activity_event_path(@activity), :rel => "facebox", :class => "btn icon-create"
+  = link_to "Nova Data", new_activity_event_path(@activity), :rel => "facebox", :class => "btn icon-create"

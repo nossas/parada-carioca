@@ -222,7 +222,7 @@ pt-BR:
     errors:
       <<: *errors
     models:
-      event: "Evento"
+      event: "Data"
     attributes:
       activity:
         name: "Nome da Parada"

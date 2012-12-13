@@ -31,7 +31,7 @@ section
     .activity_panel
       .activity_events.box
         - if @activity.events.upcoming.empty?
-          .no_events Esta parada ainda não tem nenhum evento marcado. Você pode entrar em contato direto com o guia para solicitar novas datas.
+          .no_events Esta parada ainda não tem nenhuma data marcada. Você pode entrar em contato direto com o guia para solicitar novas datas.
         - else
           = form_for Participation.new do |form|
             - @activity.events.upcoming.available.each do |event|
