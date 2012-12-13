@@ -227,6 +227,9 @@ pt-BR:
       activity:
         name: "Nome da Parada"
         description: "Descrição"
+        included: "O que está incluso"
+        requirements: "O que o usuário precisa levar"
+        cancellation_reason: "O que pode cancelar a parada"
         address: "Local de Encontro"
         price: "Preço Médio por Pessoa (R$)"
         image: "Foto"

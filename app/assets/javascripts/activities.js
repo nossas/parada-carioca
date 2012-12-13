@@ -1,6 +1,7 @@
 $(function(){
   $("select[name='by_neighborhood']").select2({width:"300px"});
   $('img').qtip();
+  $('span').qtip();
   $("#activity_price").maskMoney({allowZero: true});
 
   if(document.getElementById('activity_address')){

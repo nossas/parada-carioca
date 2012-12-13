@@ -12,6 +12,21 @@ section
           = form.text_area :description
           span.error= @activity.errors[:description].join(", ")
         .field
+          = form.label :included
+          span.tip title="Ex: passeio de barco, uma refeição, equipamento de mergulho..." [?]
+          = form.text_area :included
+          span.error= @activity.errors[:included].join(", ")
+        .field
+          = form.label :requirements
+          span.tip title="Ex: dinheiro extra, bebida, roupa de banho..." [?]
+          = form.text_area :requirements
+          span.error= @activity.errors[:requirements].join(", ")
+        .field
+          = form.label :cancellation_reason
+          span.tip title="Ex: chuva, holocausto zumbi, invasão alienígena..." [?]
+          = form.text_area :cancellation_reason
+          span.error= @activity.errors[:cancellation_reason].join(", ")
+        .field
           = form.label :address
           = form.text_field :address, :placeholder => ""
           span.error= @activity.errors[:latitude].join(", ")
@@ -20,13 +35,16 @@ section
           #map_canvas
         .field
           = form.label :neighborhood_id
+          br
           = form.select :neighborhood_id, options_from_collection_for_select(Neighborhood.order(:name), "id", "name")
         .field
           = form.label :image
+          br
           = form.file_field :image
           span.error= @activity.errors[:image].join(", ")
         .field
           = form.label :price
+          br
           = form.text_field :price, :maxlength => 10
           span.error= @activity.errors[:price].join(", ")
         hr

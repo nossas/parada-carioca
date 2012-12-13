@@ -73,7 +73,10 @@ CREATE TABLE activities (
     latitude double precision,
     longitude double precision,
     price double precision,
-    accepted boolean
+    accepted boolean,
+    included text,
+    requirements text,
+    cancellation_reason text
 );
 
 
@@ -416,3 +419,9 @@ INSERT INTO schema_migrations (version) VALUES ('20121201091348');
 INSERT INTO schema_migrations (version) VALUES ('20121201121531');
 
 INSERT INTO schema_migrations (version) VALUES ('20121206214230');
+
+INSERT INTO schema_migrations (version) VALUES ('20121213153713');
+
+INSERT INTO schema_migrations (version) VALUES ('20121213153745');
+
+INSERT INTO schema_migrations (version) VALUES ('20121213153807');
