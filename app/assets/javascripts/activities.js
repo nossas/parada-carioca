@@ -25,8 +25,8 @@ $(function(){
       }
   
       console.log(place.geometry);
-      $("#activity_latitude").val(place.geometry.location.$a);
-      $("#activity_longitude").val(place.geometry.location.ab);
+      $("#activity_latitude").val(place.geometry.location.Ya);
+      $("#activity_longitude").val(place.geometry.location.Za);
   
       // If the place has a geometry, then present it on a map.
       if (place.geometry.viewport) {
