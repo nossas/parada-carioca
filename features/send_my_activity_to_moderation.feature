@@ -13,7 +13,7 @@ Feature: send my activity to moderation
     And I set the activity location in "Estrada do Joá próximo ao número 450"
     And I select "São Conrado" as "Bairro"
     And I fill "Preço Médio por Pessoa (R$)" with "300"
-    When I press "Enviar Parada para Moderação"
+    When I press "Continuar"
     Then I should be in "the events page of the new activity"
     And I should see the awaiting moderation warning
 
@@ -21,7 +21,7 @@ Feature: send my activity to moderation
   Scenario: when I leave all fields blank
     Given I'm logged in
     And I click "Organizar Parada"
-    When I press "Enviar Parada para Moderação"
+    When I press "Continuar"
     Then I should see "da um nomezinho bonitinho pra parada"
     And I should see "queremos saber do que se trata a sua parada"
     And I should see "escolha um endereço sugerido por nós"

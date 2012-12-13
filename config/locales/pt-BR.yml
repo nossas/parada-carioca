@@ -145,7 +145,7 @@ pt-BR:
       submit: Salvar %{model}
       update: Atualizar %{model}
       activity:
-        create: Enviar Parada para Moderação
+        create: Continuar
   number:
     currency:
       format:
