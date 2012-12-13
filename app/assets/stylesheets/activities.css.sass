@@ -6,7 +6,7 @@ body.activities.index
   section.featured_activities
     margin-bottom: 3em
 
-  section.login2
+  section.login2, section.new_activity
     background: #efefef
     text-align: center
     margin-bottom: 3em
@@ -18,12 +18,19 @@ body.activities.index
         padding-left: 1em
         padding-right: 1em
 
+  section.new_activity
+    background: none
+    margin-bottom: 1em
+    p
+      font-size: 1.5em
+      margin-bottom: .5em
+
   section.top_activities h2, .meurio_and_login
     +grid(12)
     +last
 
   section.top_lists
-    margin-bottom: 3em
+    margin-bottom: 5em
     ol.activities, ol.neighborhoods
       margin: 0 1px 2px 1px
       +box-shadow(lightgray 0 1px 2px)

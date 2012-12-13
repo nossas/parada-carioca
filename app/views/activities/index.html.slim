@@ -37,3 +37,8 @@ section.top_lists
           li.activity
             = link_to activity do
               #{content_tag :span, index + 1}#{truncate(activity.name, :length => 35)}
+                
+section.new_activity
+  .row
+    p Tá perdendo tempo por quê? Organize agora sua parada!
+    = link_to "Organizar Parada", new_activity_path, :class => "btn icon-new-activity"
