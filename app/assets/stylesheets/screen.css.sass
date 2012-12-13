@@ -100,13 +100,13 @@ span, label
 p
   line-height: 1.5em
 
-.btn, input[type='submit'], button
-  background: $pink
+@mixin btn($color)
+  background: $color
   color: white
   text-align: center
   text-transform: uppercase
   padding: .8em 4em
-  background: $pink
+  background: $color
   font-family: "Proxima Nova", sans-serif
   font-weight: bold
   font-size: 1em
@@ -114,7 +114,7 @@ p
   border: none
   display: inline-block
   +transition(.2s)
-  +background-image(linear-gradient($pink, darken($pink, 10%)))
+  +background-image(linear-gradient($color, darken($color, 10%)))
   +box-shadow(0 0 .1em lighten(black, 15%))
   +border-radius(4px)
   &:before
@@ -125,7 +125,7 @@ p
     margin-right: .5em
     +opacity(.5)
   &:hover
-    background: darken($pink, 5%)
+    background: darken($color, 5%)
     cursor: pointer
     color: white
     text-decoration: none
@@ -137,6 +137,12 @@ p
   .icon-checkmark, .icon-heart, .icon-calendar-add
     &:before
       margin-right: .3em
+
+.btn, input[type='submit'], button
+  +btn($pink)
+
+.btn_fb
+  +btn(lighten(#3B5998, 10%))
 
 .btn_gray
   padding: .4em .2em

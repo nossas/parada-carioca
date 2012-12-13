@@ -139,3 +139,9 @@
 .icon-location:before {
 	content: "\e024";
 }
+.icon-facebook:before {
+	content: "\e025";
+}
+.icon-facebook-2:before {
+	content: "\e026";
+}

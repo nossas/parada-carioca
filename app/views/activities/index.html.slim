@@ -9,17 +9,22 @@ section.featured_activities
   .row
     ol.activities= render @popular_activities[0..2]
 
+- if current_user.nil?
+  section.login2
+    .row
+      .login Cadastre-se agora e comece a agendar e organizar suas paradas. #{link_to "Entrar com o Facebook", "/auth/facebook", :class => "btn_fb icon-facebook"}
+
 section.top_lists
   .row
     .popular_neighborhoods
-      h3.icon-top-places Bairros Top
+      h3.icon-top-bairros Bairros Top
       ol.neighborhoods
         - @popular_neighborhoods.each_with_index do |neighborhood, index|
           li.neighborhood 
             = link_to activities_search_path(:by_neighborhood => neighborhood.id) do
               #{content_tag :span, index + 1}#{truncate(neighborhood.name, :length => 35)}
     .popular_activities
-      h3.icon-popular-activities Paradas Top
+      h3.icon-paradas-populares Paradas Top
       ol.activities
         - @popular_activities.each_with_index do |activity, index|
           li.activity
