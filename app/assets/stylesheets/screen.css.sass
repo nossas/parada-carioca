@@ -156,7 +156,7 @@ p
       color: lighten(gray, 40%)
       top: .1em
 
-header.login
+.login
   background: white
   padding-top: .25em
   padding-bottom: .25em
@@ -178,21 +178,40 @@ header.login
   .user_name_and_avatar
     text-align: right
     font-weight: bold
+    a
+      color: lighten(gray, 18%)
+      padding: 0 .3em
+      &:hover
+        color: black
+        text-decoration: none
+      &:after
+        content: " | "
+        padding-left: .4em
+        display: inline-block
+      &:last-child
+        padding-left: .6em
+        &:hover
+          background: lighten(gray, 40%)
+        &:after
+          content: ''
     img
-      width: 30px
-      float: right
-      margin-top: 5px
-      margin-left: 1em
+      width: 2.5%
+      float: none
+      display: inline-block
+      position: relative
+      top: .5em
+      margin-right: .4em
+      +border-radius(20px)
 
-section.nav
+.navigation
   background: white
-  margin-bottom: 3em
-  +box-shadow(lighten(gray, 15%) 0 20px 20px -20px inset)
+  +box-shadow(lighten(gray, 10%) 0 10px 20px -15px inset)
   .row
-    padding-top: 1em
-    padding-bottom: 1em
+    padding: 1.0em 0
+    overflow: hidden
   img
     float: left
+    +transition(.2s)
     &:hover
       +rotate(-2deg)
   .btn
@@ -203,6 +222,7 @@ section.nav
 
 .content
   background: #f8f8f8
+  padding-top: 1em
   padding-bottom: 4em
 
 footer

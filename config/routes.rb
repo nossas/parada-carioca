@@ -1,6 +1,6 @@
 ParadaCarioca::Application.routes.draw do
   match '/auth/:provider/callback', :to => 'sessions#create'
-  
+  get '/meurio', to: redirect('http://meurio.org.br'), as: :meurio 
   get '/activities/search', :to => 'activities#search'
 
   resources :activities, only: [:index, :show, :new, :create] do
