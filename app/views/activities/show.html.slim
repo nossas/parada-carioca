@@ -24,6 +24,15 @@ section
       .activity_description
         h2 Qual é a Parada?
         = simple_format @activity.description
+        - if !@activity.included.blank?
+          h2 O que está incluso?
+          = simple_format @activity.included
+        - if !@activity.requirements.blank?
+          h2 O que precisam levar?
+          = simple_format @activity.requirements
+        - if !@activity.cancellation_reason.blank?
+          h2 O que pode cancelar a parada?
+          = simple_format @activity.cancellation_reason
       .activity_reviews_list
         span.icon-review #{content_tag :span, @activity.reviews.count} #{t('review', :count => @activity.reviews.count)}
         ul= render @activity.reviews.order("created_at DESC")
@@ -34,7 +43,7 @@ section
           .no_events Esta parada ainda não tem nenhuma data marcada. Você pode entrar em contato direto com o guia para solicitar novas datas.
         - else
           = form_for Participation.new do |form|
-            - @activity.events.upcoming.available.each do |event|
+            - @activity.events.upcoming.available.order(:date).each do |event|
               .event
                 .event_date= l event.date, :format => :event
                 = form.label "event_id_#{event.id}" do
