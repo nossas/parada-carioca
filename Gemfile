@@ -37,7 +37,7 @@ end
 
 gem 'jquery-rails'
 gem 'select2-rails'
-gem 'jquery-qtip2-rails'
+gem 'jquery-qtip2-rails', :git => "git://github.com/tkrotoff/jquery-qtip2-rails.git"
 gem "cancan"
 gem 'facebox-rails'
 gem 'jquery-ui-rails'
