@@ -43,11 +43,12 @@ App.Activities = {
       var infowindow    = new google.maps.InfoWindow();
       var marker        = new google.maps.Marker({ map: map, position: myLatLng });
       var self          = this;
+
       autocomplete.bindTo('bounds', map);
 
       google.maps.event.addListener(autocomplete, 'place_changed', function() {
         infowindow.close();
-        marker.setVisible(false);
+        marker.setVisible(true);
         input.className = '';
         var place = autocomplete.getPlace();
         if (!place.geometry) {
@@ -67,7 +68,7 @@ App.Activities = {
           map.setCenter(place.geometry.location);
           map.setZoom(17);  // Why 17? Because it looks good.
         }
-        marker.setIcon(null);
+ 
         marker.setPosition(place.geometry.location);
 
         var address = '';
@@ -78,9 +79,9 @@ App.Activities = {
             (place.address_components[2] && place.address_components[2].short_name || '')
           ].join(' ');
         }
-
-        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
-        infowindow.open(map, marker);
+        infowindow.setPosition(place.geometry.location);
+        infowindow.setContent('<strong>' + place.name + '</strong><br>' + address);
+        infowindow.open(map);
       });
     }
   })
