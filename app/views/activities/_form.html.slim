@@ -42,7 +42,7 @@
     .field
       = form.label :price
       br
-      = form.text_field :price, :maxlength => 10
+      = form.text_field :price, :maxlength => 10, class: 'price'
       span.error= @activity.errors[:price].join(", ")
     hr
     .field
