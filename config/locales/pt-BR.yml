@@ -214,6 +214,14 @@ pt-BR:
       short: ! '%d/%m, %H:%M h'
       event: ! '%A, %d de %B de %Y'
     pm: ''
+  flash:
+    actions: 
+      create: 
+        notice: "%{resource_name} criado(a) com sucesso!"
+      update:
+        notice: "%{resource_name} atualizado(a) com sucesso!"
+      destroy: 
+        notice: "%{resource_name} removido(a) com sucesso!"
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
     errors:

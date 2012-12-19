@@ -14,7 +14,10 @@ class EventsController < ApplicationController
   end
 
   def create
-    create! { edit_activity_path(@activity, anchor: :events) }
+    create! do |success, failure|
+      success.html { redirect_to edit_activity_path(@activity, anchor: :events) }
+      failure.html { redirect_to edit_activity_path(@activity, anchor: :events) }
+    end
   end
 
   def destroy

@@ -10,7 +10,7 @@ section
   .row
     header.about
       h1= @activity.name
-      = render alert or notice if alert or notice
+      = render 'layouts/flash_messages'
     aside.left
       = render 'edit_menu'
     article.right

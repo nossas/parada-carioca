@@ -12,4 +12,4 @@ pt-BR:
     event:
       attendees: "%{min} a %{max} pessoas"
       duration: "%{hour} horas"
-      participations: "%{min}/%{max}"
+      participations_html: "<strong>%{min}/%{max}</strong> restantes"
