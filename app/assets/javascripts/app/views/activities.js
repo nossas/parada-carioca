@@ -109,7 +109,7 @@ App.Activities.Edit = App.Activities.New.extend({
   el: 'body',
 
   events: _.extend({
-    'reveal.facebox' : 'validateDateField',
+    'submit #new_event' : 'validateDateField',
   }, App.Activities.New.prototype.events),
 
   initialize: function(){

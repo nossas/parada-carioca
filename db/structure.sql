@@ -65,6 +65,7 @@ CREATE TABLE activities (
     name character varying(255),
     description text,
     user_id integer,
+    price double precision,
     address character varying(255),
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
@@ -72,12 +73,10 @@ CREATE TABLE activities (
     neighborhood_id integer,
     latitude double precision,
     longitude double precision,
-    price double precision,
     accepted boolean,
     included text,
     requirements text,
-    cancellation_reason text,
-    active boolean DEFAULT true
+    cancellation_reason text
 );
 
 
@@ -427,7 +426,5 @@ INSERT INTO schema_migrations (version) VALUES ('20121213153713');
 INSERT INTO schema_migrations (version) VALUES ('20121213153745');
 
 INSERT INTO schema_migrations (version) VALUES ('20121213153807');
-
-INSERT INTO schema_migrations (version) VALUES ('20121214140923');
 
 INSERT INTO schema_migrations (version) VALUES ('20121217171222');
