@@ -11,4 +11,4 @@
   = hidden_field "pagador_nome", :value => @participation.user.name
   = hidden_field "pagador_email", :value => @participation.user.email
   = hidden_field "url_retorno", :value => user_participations_path(current_user)
-  = submit_tag "Finalizar Pagamento com Moip", :disabled => true, :class => "moip_checkout"
+  = submit_tag "Finalizar Pagamento com Moip", :disabled => current_user.phone.blank?, :class => "moip_checkout"
