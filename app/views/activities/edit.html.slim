@@ -1,11 +1,22 @@
-section.edit
+//= content_for :stylesheet do
+  = stylesheet_link_tag :calendar
+//= content_for :javascript do
+  = javascript_include_tag 'calendar/calendar'
+.edit
+  .header
+    .row
+      h2 Dashboard
+section 
   .row
-    header
-      h1 Edição de atividade
-  
-
+    header.about
+      h1= @activity.name
+      = render alert or notice if alert or notice
     aside.left
       = render 'edit_menu'
     article.right
-      = render 'form'
+      .box
+        .hidden.item.events   = render 'events/new' 
+        .hidden.item.calendar = render 'events/calendar' 
+        .hidden.item.info     = render 'form'
+        .hidden.item.photos   = image_tag @activity.image.url    
 

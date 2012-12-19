@@ -4,3 +4,12 @@ pt-BR:
   login:
     home: "Início"
     log_in_html: "Entre com a sua conta do %{link}"
+  actions:
+    edit: "Editar"
+    destroy: "Excluir"
+    confirm: "Tem certeza?"
+  activity:
+    event:
+      attendees: "%{min} a %{max} pessoas"
+      duration: "%{hour} horas"
+      participations: "%{min}/%{max}"

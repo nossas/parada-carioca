@@ -11,6 +11,17 @@ class Event < ActiveRecord::Base
   validates :activity, :date, :price, :minimum_attendees, :maximum_attendees, :presence => true
   validate :date_cannot_be_in_the_past
 
+  def as_json options= {}
+    {
+      id:     self.id,
+      title:  self.date.strftime('%H:%m'), 
+      start:  self.date,
+      price:  self.price,
+      end:    self.date + self.duration.to_i.hours
+    }
+  end
+
+
   def remaining_to_maximum
     maximum_attendees - participations.count
   end

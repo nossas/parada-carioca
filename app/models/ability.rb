@@ -11,6 +11,9 @@ class Ability
       can :update, Activity, user_id: user.id
       can :create, Participation
       can :manage, User, :id => user.id
+      can :manage, Event do |event|
+        event.activity.user = user
+      end
     end
   end
 end

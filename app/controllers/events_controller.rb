@@ -1,16 +1,27 @@
 class EventsController < ApplicationController
   inherit_resources
   belongs_to :activity
+  respond_to :json, only: [:index]
+
   before_filter only: [:index] { @event = Event.new }
 
   def new
-    new!(:layout => nil)
+    new! { return render partial: 'form', layout: nil }
+  end
+
+  def edit
+    edit! { return render partial: 'form', layout: nil }
   end
 
   def create
-    create! do |success, failure|
-      success.html { redirect_to activity_events_path(@activity), :flash => {:event_created_notice => "Nova data criada #{l @event.date}"} }
-      failure.html { render :index }
-    end
+    create! { edit_activity_path(@activity, anchor: :events) }
+  end
+
+  def destroy
+    destroy! { edit_activity_path(@activity, anchor: :events) }
+  end
+
+  def update
+    update! { edit_activity_path(@activity, anchor: :events) }
   end
 end

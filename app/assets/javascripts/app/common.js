@@ -3,17 +3,25 @@ App = window.App = {
     init: function(){    
       this.loadLibraries();
       this.initializeSocialButtons();
-
+      this.loadOnFaceboxReveal();
     },
 
     loadLibraries: function(){
       $('.datepicker').datetimepicker({ dateFormat: "dd/mm/yy", minDate: new Date() });
-      $('*[class=price]').maskMoney({ allowZero: true });
-      $('*[class=price]').mask({ allowZero: true });
+      $('.price').maskMoney({ allowZero: true, thousands: '' });
+      $('.price').mask();
       $(".select2").select2({ width: "300px" });
       $('.tip').qtip();
       $('[rel*=facebox]').facebox();
 
+    },
+    
+
+    loadOnFaceboxReveal: function(){
+      var self = this;
+      $(document).bind('reveal.facebox', function(){ 
+        self.loadLibraries(); 
+      });
     },
 
     initializeSocialButtons: function(){

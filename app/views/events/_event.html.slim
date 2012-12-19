@@ -1,6 +1,11 @@
-.event
+li.event
   span.date= l event.date
-  span.icon-clock #{event.duration} horas
-  span.icon-people #{event.minimum_attendees} a #{event.maximum_attendees} pessoas
-  span.icon-money= number_to_currency event.price
-  span.participations #{event.participations.count}/#{event.maximum_attendees}
+  span.icon-clock     = t 'activity.event.duration', hour: event.duration
+  span.icon-people    = t 'activity.event.attendees', min: event.minimum_attendees, max: event.maximum_attendees
+  span.icon-money     = number_to_currency event.price
+  span.participations = t 'activity.event.participations', min: event.participations.count, max: event.maximum_attendees
+  - if can? :manage, Event 
+    span.actions
+      = link_to t('actions.edit'), edit_activity_event_path(@activity, event), rel: :facebox
+      = link_to t('actions.destroy'), activity_event_path(@activity, event), method: :delete, confirm: t('actions.confirm')
+

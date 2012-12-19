@@ -11,6 +11,10 @@ aside.right
 .meurio_and_login
   +grid(12)
   +last
+.hidden
+  display: none
+.box
+  overflow: hidden
 
 // General rules
 
@@ -274,7 +278,32 @@ span.tip
   margin: 0 .5em
   cursor: pointer
 
-.event
+li.event
+  padding: 2em 1em
+  border-bottom: 1px solid lightgray
+  +transition(.2s)
+  span.date, span.icon-money
+    font-weight: bold
+  span
+    font-size: .8em
+    padding-right: 1em
+    &:before
+      margin-right: .4em
+  span.actions
+    float: right 
+    display: inline-block
+    font-size: .7em
+    margin-top: .2em
+    a
+      display: inline-block
+      margin-left: .2em
+
+  &:before
+    float: left
+    font-size: 2.4em
+    margin-right: .2em
+  &:hover
+    background: lighten(green, 70%) 
   span
     display: inline-block
     &.date

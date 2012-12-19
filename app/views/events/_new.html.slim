@@ -1,0 +1,11 @@
+.event
+  .new
+    h3 Aqui você pode preparar o calendário das atividades. 
+    h3 Escolha as datas, o valor por cada pessoa e o número mínimo e máximo de participantes.
+    = link_to "Criar Nova Data", new_activity_event_path(@activity), :rel => "facebox", :class => "btn icon-create"
+
+  .index
+    ol.events
+      - @activity.events.each_with_index do |event, index|
+        = render partial: 'events/event', locals: { event: event }
+      

@@ -18,9 +18,6 @@ class Activity < ActiveRecord::Base
     where("(earth_distance(ll_to_earth(activities.latitude::numeric, activities.longitude::numeric), ll_to_earth(#{latitude}, #{longitude}))) <= ?", distance).order("(SELECT earth_distance(ll_to_earth(activities.latitude::numeric, activities.longitude::numeric), ll_to_earth(#{latitude}, #{longitude})))")
   end
 
-  def to_param
-    "#{id}-#{self.name.parameterize}"
-  end
 
   def minimum_attendees
     events.any? ? events.minimum(:minimum_attendees) : nil

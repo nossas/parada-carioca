@@ -25,7 +25,7 @@ App.Activities = {
         canvas:   this.canvas, 
         lat:      lat, 
         lng:      lng, 
-        zoom:     13
+        zoom:     16
       });  
     },
 
@@ -68,7 +68,7 @@ App.Activities = {
           map.setCenter(place.geometry.location);
           map.setZoom(17);  // Why 17? Because it looks good.
         }
- 
+
         marker.setPosition(place.geometry.location);
 
         var address = '';
@@ -86,6 +86,24 @@ App.Activities = {
     }
   })
 };
+App.Activities.Router = Backbone.Router.extend({
+
+  routes: {
+    ":page" : 'showBlock',
+  },
+
+  showBlock: function(page) { 
+    var el    = $('.' + page);
+    var link  = $('a.' + page);
+    
+    $('.item').addClass('hidden');
+    el.removeClass('hidden').animate({ marginTop: 0 }, 200)
+    $('.menu a').removeClass('selected');
+    link.addClass('selected'); 
+    $('.hidden').addClass('not_active').animate({ marginTop: "-400px"}, 30);
+  }
+});
+
 
 App.Activities.Edit = App.Activities.New.extend({
   el: 'body',
@@ -97,9 +115,36 @@ App.Activities.Edit = App.Activities.New.extend({
   initialize: function(){
     this.$('#create_event').hide();
     this.validateDateField();
+
+
+
+    // Binding routes
+    new App.Activities.Router();
+    Backbone.history.start();
+
+    // Inheritance from parent View
     App.Activities.New.prototype.initialize.apply(this);
 
+    // Initializing the calendar
+    this.calendar = this.$('#calendar');
 
+
+    // Initializing the fullCalendar plugin
+    // It is not active yet.
+    //this.showCalendarWithEvents(this.calendar);
+  },
+  
+  showCalendarWithEvents: function(target, evts) {
+    var self = this;
+    target.fullCalendar({ 
+      events: self.calendar.data('url'), 
+      header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+			defaultView: 'month',
+    }); 
   },
 
   validateDateField: function(){

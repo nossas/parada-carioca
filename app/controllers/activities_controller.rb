@@ -16,10 +16,10 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity.guide = current_user
-    create! { activity_events_path(@activity) }
+    create! { edit_activity_path(@activity, anchor: :events) }
   end
 
   def update
-    update! { edit_activity_path(@activity) }
+    update! { edit_activity_path(@activity, anchor: :info) }
   end
 end

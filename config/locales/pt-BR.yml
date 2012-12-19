@@ -223,6 +223,7 @@ pt-BR:
       <<: *errors
     models:
       event: "Data"
+      activity: "Parada"
     attributes:
       activity:
         name: "Nome da Parada"

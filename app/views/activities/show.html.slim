@@ -1,7 +1,7 @@
 
 - if can?(:update, @activity)
   = content_for :admin do
-    = link_to "Editar", edit_activity_path(@activity), class: 'btn icon-pencil'
+    = link_to "Editar", edit_activity_path(@activity, anchor: :info), class: 'btn icon-pencil'
 
 section
   .row
@@ -9,7 +9,7 @@ section
       h1= @activity.name
       span.icon-location= @activity.address
       - if !@activity.minimum_attendees.nil?
-        span.icon-people #{@activity.minimum_attendees} a #{@activity.maximum_attendees} pessoas
+          span.icon-people= t 'activity.attendees', min: @activity.minimum_attendees, max: @activity.maximum_attendees 
       - if !@activity.maximum_attendees.nil?
         span.icon-clock #{@activity.duration} horas
     .activity_price

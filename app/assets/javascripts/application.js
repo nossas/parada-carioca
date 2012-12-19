@@ -15,10 +15,11 @@
 //= require select2
 //= require jquery.qtip.js
 //= require jquery.facebox
-//= require jquery.ui.all
+//= require jquery.ui.autocomplete
+//= require jquery.ui.datepicker
 //= require jquery.validate
 //= require libraries/underscore
 //= require libraries/backbone
 //= require_tree ./libraries
 //= require_tree ./app
-//= require_tree .
+//= require init
