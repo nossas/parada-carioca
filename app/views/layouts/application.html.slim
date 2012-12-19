@@ -1,58 +1,16 @@
 doctype html
 html
   head
-    title Parada Carioca
+    title= t 'site.title'
     /[if IE]
       = javascript_include_tag "http://html5shiv.googlecode.com/svn/trunk/html5.js"
     = stylesheet_link_tag :application
     = favicon_link_tag 'favicon.png', type: 'image/png'
-  body class="#{controller.controller_name} #{controller.action_name}"
-    header.login
-      .row
-        .meurio_and_login
-          = link_to image_tag("meurio.jpeg"), "http://meurio.org.br/"
-          - if current_user.nil?
-            .login Entre com a sua conta do #{link_to "", facebook_auth_path, :class => "icon-facebook-2", :id => "auth_facebook"}
-          - else
-            .user_name_and_avatar.user_panel
-              = current_user.name
-              = image_tag current_user.avatar
+  body class="#{controller.controller_name} #{controller.action_name}" data-controller=controller.controller_name.camelize data-action=controller.action_name.camelize
 
-    .content role="main"
-      section.nav
-        .row
-          .logo= link_to image_tag("marca-parada-carioca.png"), root_path
-          .menu= link_to "Organizar Parada", new_activity_path, :class => "btn icon-new-activity"
-
-      - if content_for?(:activity_content)
-        section
-          .row
-            .header
-              h1= @activity.name
-              - if @activity.awaiting_moderation?
-                .awaiting_moderation_warning Aguardando moderação
-            .activity_menu
-              = link_to "Calendário", activity_events_path(@activity), :class => "icon-calendar #{controller.action_name == "index" ? 'selected' : ''}"
-            .activity_content
-              .box= yield(:activity_content)
-      - else
-        = yield
-
-    footer
-      .row
-        .signature © 2012 Parada Carioca
+    = render 'layouts/header'
+    .content= yield
+    = render 'layouts/footer'
     = javascript_include_tag :application
-    = javascript_include_tag "http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"
-    
-    #fb-root
-    javascript:
-      (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=329953690444851";
-      fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    
-    javascript:
-      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+    = javascript_include_tag "http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true&language=pt-BR"
+

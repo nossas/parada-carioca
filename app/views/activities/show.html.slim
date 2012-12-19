@@ -1,3 +1,8 @@
+
+- if can?(:update, @activity)
+  = content_for :admin do
+    = link_to "Editar", edit_activity_path(@activity), class: 'btn icon-pencil'
+
 section
   .row
     .activity_name
@@ -18,8 +23,8 @@ section
     .activity_info
       = image_tag @activity.image, :class => "activity_cover"
       .activity_share
-        a.twitter-share-button href="https://twitter.com/share", "data-lang"="pt" Tweetar
-        .fb-like "data-href"=request.url, "data-send"="true", "data-layout"="button_count", "data-width"="450", "data-show-faces"="false"
+        a.twitter-share-button[href="https://twitter.com/share" data-lang="pt"] Tweetar
+        .fb-like[data-href=request.url data-send="true" data-layout="button_count" data-width="450" data-show-faces="false"]
       hr
       .activity_description
         h2 Qual é a Parada?

@@ -1,0 +1,6 @@
+pt-BR:
+  site:
+    title: "Parada Carioca - Aproximando os cariocas de um Rio de Janeiro que ainda não conhecem por inteiro"
+  login:
+    home: "Início"
+    log_in_html: "Entre com a sua conta do %{link}"

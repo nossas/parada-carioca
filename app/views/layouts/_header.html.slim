@@ -1,0 +1,19 @@
+.login
+  .row
+    .meurio_and_login
+      = link_to image_tag("meurio.jpeg"), meurio_path 
+      - if current_user.nil?
+        .login= t 'login.log_in_html', link: link_to('', facebook_auth_path, :class => "icon-facebook-2", :id => "auth_facebook")
+      - else
+        .user_name_and_avatar.user_panel
+          = image_tag current_user.avatar
+          = link_to current_user.name, ''
+          = link_to t('login.home'), root_path
+          = link_to "▾", '#/'
+
+.navigation
+  .row
+    .logo= link_to image_tag("marca-parada-carioca.png"), root_path
+    .menu
+      = link_to "Organizar Parada", new_activity_path, :class => "btn icon-new-activity"
+      = yield :admin

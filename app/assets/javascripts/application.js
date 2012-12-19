@@ -14,10 +14,11 @@
 //= require jquery_ujs
 //= require select2
 //= require jquery.qtip.js
-//= require jquery.maskMoney.js
 //= require jquery.facebox
 //= require jquery.ui.all
-//= require jquery-ui-timepicker-addon.js
-//= require ui.datepicker-pt-BR.js
 //= require jquery.validate
+//= require libraries/underscore
+//= require libraries/backbone
+//= require_tree ./libraries
+//= require_tree ./app
 //= require_tree .

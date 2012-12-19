@@ -17,6 +17,12 @@ Given /^there is an activity called "(.*?)" in "(.*?)"$/ do |arg1, arg2|
   Activity.make!({:name => arg1, :address => arg2}.merge(location(arg2)))
 end
 
+
+Given /^that I created an activity called "(.*?)" in "(.*?)"$/ do |arg1, arg2|
+  Activity.make!({:name => arg1, :address => arg2, guide: User.find_by_email('nicolas@engage.is')}.merge(location(arg2)))
+end
+
+
 Given /^there is an activity of "(.*?)" with (\d+) attendees$/ do |arg1, arg2|
   event = Event.make! :activity => Activity.make!(:guide => User.find_by_email(arg1))
   arg2.to_i.times { event.attendees << User.make! }

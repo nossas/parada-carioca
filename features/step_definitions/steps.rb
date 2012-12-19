@@ -1,5 +1,10 @@
 include ActionView::Helpers::TextHelper
 
+
+Given /^I'm in the homepage$/ do 
+  visit root_path
+end
+
 Given /^there is a guide called "(.*?)" and email "(.*?)"$/ do |arg1, arg2|
   User.make! :first_name => arg1.split[0], :last_name => arg1.split[1], :email => arg2
 end

@@ -16,9 +16,10 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity.guide = current_user
-    create! do |success, failure|
-      success.html { redirect_to activity_events_path(@activity) }
-      failure.html { render :new }
-    end
+    create! { activity_events_path(@activity) }
+  end
+
+  def update
+    update! { edit_activity_path(@activity) }
   end
 end

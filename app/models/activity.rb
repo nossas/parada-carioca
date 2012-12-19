@@ -1,5 +1,6 @@
 class Activity < ActiveRecord::Base
-  attr_accessible :address, :description, :name, :price, :image, :user_id, :latitude, :longitude, :neighborhood, :neighborhood_id, :included, :requirements, :cancellation_reason
+  attr_accessible :address, :description, :name, :price, :image, :user_id, :latitude, 
+    :longitude, :neighborhood, :neighborhood_id, :included, :requirements, :cancellation_reason
 
   has_many :events
   has_many :reviews
