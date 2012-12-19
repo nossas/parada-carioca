@@ -1,0 +1,6 @@
+.event
+  span.date= l event.date
+  span.icon-clock #{event.duration} horas
+  span.icon-people #{event.minimum_attendees} a #{event.maximum_attendees} pessoas
+  span.icon-money= number_to_currency event.price
+  span.participations #{event.participations.count}/#{event.maximum_attendees}
