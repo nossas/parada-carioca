@@ -144,7 +144,10 @@ p
 .btn_fb
   +btn(lighten(#3B5998, 10%))
 
-.btn_gray
+input[type='submit']:disabled
+  +btn(lightgray)
+
+.btn_gray 
   padding: .4em .2em
   width: 60%
   background: lighten(gray, 10%)

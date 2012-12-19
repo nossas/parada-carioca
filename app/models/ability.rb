@@ -26,10 +26,13 @@ class Ability
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
 
     can :read, Activity
+    can :read, Participation
     can :search, Activity
 
     if user
       can :create, Activity
+      can :create, Participation
+      can :manage, User, :id => user.id
     end
   end
 end

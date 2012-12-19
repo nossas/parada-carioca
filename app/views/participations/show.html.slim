@@ -1,0 +1,14 @@
+= form_for current_user, :remote => true do |form|
+  = form.label :phone
+  = form.text_field :phone
+  = form.submit "Atualizar Telefone"
+
+= form_tag "https://www.moip.com.br/PagamentoMoIP.do", :method => :post do
+  = hidden_field "id_carteira", :value => "meurio123"
+  = hidden_field "valor", :value => @participation.event.price
+  = hidden_field "nome", :value => @participation.event.activity.name
+  = hidden_field "id_transacao", :value => @participation.id
+  = hidden_field "pagador_nome", :value => @participation.user.name
+  = hidden_field "pagador_email", :value => @participation.user.email
+  = hidden_field "url_retorno", :value => user_participations_path(current_user)
+  = submit_tag "Finalizar Pagamento com Moip", :disabled => true, :class => "moip_checkout"

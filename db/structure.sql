@@ -76,7 +76,8 @@ CREATE TABLE activities (
     accepted boolean,
     included text,
     requirements text,
-    cancellation_reason text
+    cancellation_reason text,
+    active boolean DEFAULT true
 );
 
 
@@ -254,7 +255,8 @@ CREATE TABLE users (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     avatar character varying(255),
-    uid character varying(255)
+    uid character varying(255),
+    phone character varying(255)
 );
 
 
@@ -425,3 +427,7 @@ INSERT INTO schema_migrations (version) VALUES ('20121213153713');
 INSERT INTO schema_migrations (version) VALUES ('20121213153745');
 
 INSERT INTO schema_migrations (version) VALUES ('20121213153807');
+
+INSERT INTO schema_migrations (version) VALUES ('20121214140923');
+
+INSERT INTO schema_migrations (version) VALUES ('20121217171222');

@@ -66,6 +66,14 @@ Then /^I should see the created event message$/ do
   page.should have_css(".event_created_notice")
 end
 
+Given /^I select a date to schedule$/ do
+  choose("participation[event_id]")
+end
+
+Then /^the Moip checkout button should be enable$/ do
+  page.should_not have_css(".moip_checkout[disabled='disabled']")
+end
+
 Then(/^show me the page$/)                      { save_and_open_page }
 When(/^I go to "(.*?)"$/)                       { |arg1| visit path(arg1) }
 Then(/^the first activity should be "(.*?)"$/)  { |arg1| page.should have_css('ol.activities li:first-child', :text => arg1) }

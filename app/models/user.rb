@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :first_name, :last_name, :avatar, :uid
+  attr_accessible :email, :first_name, :last_name, :avatar, :uid, :phone
 
   has_many :activities
   has_many :reviews, :through => :activities

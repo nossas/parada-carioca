@@ -240,6 +240,8 @@ pt-BR:
         maximum_attendees: "Máximo de Participantes"
         duration: "Duração"
         price: "Preço por Pessoa (R$)"
+      user:
+        phone: "Telefone"
   review:
     one: avaliação
     other: avaliações

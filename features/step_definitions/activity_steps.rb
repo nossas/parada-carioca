@@ -26,3 +26,8 @@ Given /^there is an activity in "(.*?)" with (\d+) attendees$/ do |arg1, arg2|
   event = Event.make! :activity => Activity.make!(:neighborhood => Neighborhood.find_by_name(arg1))
   arg2.to_i.times { event.attendees << User.make! }
 end
+
+Given /^there is an activity with (\d+) [event|events]+$/ do |arg1|
+  @activity = Activity.make!
+  Event.make! :activity => @activity
+end

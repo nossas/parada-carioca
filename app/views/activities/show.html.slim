@@ -60,6 +60,7 @@ section
                     - event.attendees.each do |attendee|
                       = image_tag attendee.avatar, :title => attendee.name
                     span +#{event.attendees.count} #{t('going', :count => event.attendees.count)}
+            = form.submit "Agendar Parada"
 
       .activity_guide.box
         = image_tag @activity.guide.avatar, :title => @activity.guide.name
