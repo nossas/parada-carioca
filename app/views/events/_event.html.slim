@@ -4,8 +4,3 @@ li.event
   span.icon-people    = t 'activity.event.attendees', min: event.minimum_attendees, max: event.maximum_attendees
   span.icon-money     = number_to_currency event.price
   span.participations = t 'activity.event.participations', min: event.participations.count, max: event.maximum_attendees
-  - if can? :manage, Event 
-    span.actions
-      = link_to t('actions.edit'), edit_activity_event_path(@activity, event), rel: :facebox
-      = link_to t('actions.destroy'), activity_event_path(@activity, event), method: :delete, confirm: t('actions.confirm')
-
