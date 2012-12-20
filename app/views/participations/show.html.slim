@@ -5,7 +5,7 @@ section
     = form_for current_user, :remote => true do |form|
       = form.label :phone
       = form.text_field :phone
-      = form.submit "Atualizar Telefone"
+      = form.submit "Atualizar Telefone", class: :btn
   .row
     = form_tag "https://www.moip.com.br/PagamentoMoIP.do", :method => :post do
       = hidden_field "id_carteira", :value => "meurio123"
@@ -15,4 +15,4 @@ section
       = hidden_field "pagador_nome", :value => @participation.user.name
       = hidden_field "pagador_email", :value => @participation.user.email
       = hidden_field "url_retorno", :value => user_participations_path(current_user)
-      = submit_tag "Finalizar Pagamento com Moip", :disabled => current_user.phone.blank?, :class => "moip_checkout"
+      = submit_tag "Finalizar Pagamento com Moip", :disabled => current_user.phone.blank?, :class => "moip_checkout btn"
