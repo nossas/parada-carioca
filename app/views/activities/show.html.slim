@@ -1,8 +1,3 @@
-
-- if can?(:update, @activity)
-  = content_for :admin do
-    = link_to "Editar", edit_activity_path(@activity, anchor: :info), class: 'btn icon-pencil'
-
 section
   .row
     .activity_name
@@ -43,6 +38,8 @@ section
         ul= render @activity.reviews.order("created_at DESC")
 
     .activity_panel
+      
+      = link_to "Editar Parada", edit_activity_path(@activity, anchor: :info), class: 'btn icon-pencil' if can?(:update, @activity)
       .activity_events.box
         - if @activity.events.upcoming.empty?
           .no_events Esta parada ainda não tem nenhuma data marcada. Você pode entrar em contato direto com o guia para solicitar novas datas.

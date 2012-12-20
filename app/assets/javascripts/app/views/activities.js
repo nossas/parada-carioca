@@ -95,7 +95,7 @@ App.Activities.Router = Backbone.Router.extend({
   showBlock: function(page) { 
     var el    = $('.' + page);
     var link  = $('a.' + page);
-    
+
     $('.item').addClass('hidden');
     el.removeClass('hidden').animate({ marginTop: 0 }, 200)
     $('.menu a').removeClass('selected');
@@ -108,13 +108,14 @@ App.Activities.Router = Backbone.Router.extend({
 App.Activities.Edit = App.Activities.New.extend({
   el: 'body',
 
-  events: _.extend({
-    'submit #new_event' : 'validateDateField',
-  }, App.Activities.New.prototype.events),
+
+  events: function(){
+    return this.constructor.__super__.events;
+  },
+
 
   initialize: function(){
     this.$('#create_event').hide();
-    this.validateDateField();
 
 
 
@@ -133,27 +134,20 @@ App.Activities.Edit = App.Activities.New.extend({
     // It is not active yet.
     //this.showCalendarWithEvents(this.calendar);
   },
-  
+
   showCalendarWithEvents: function(target, evts) {
     var self = this;
     target.fullCalendar({ 
       events: self.calendar.data('url'), 
       header: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,agendaWeek,agendaDay'
-			},
-			defaultView: 'month',
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+      defaultView: 'month',
     }); 
   },
 
-  validateDateField: function(){
-    this.$("#new_event").validate({
-      messages: {
-        "event[date]": {required: "escolha uma data para a realização do evento"}
-      }
-    });
-  },
 });
 
 
