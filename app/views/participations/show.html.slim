@@ -1,7 +1,9 @@
 section
   .row
     h2 Confirme a sua Data
-    .checkout_list.box= render @participation.event
+    ul.checkout_list.box
+      = link_to @participation.event.activity.name, @participation.event.activity
+      = render @participation.event
   .row
     = form_for current_user, :remote => true do |form|
       .box
