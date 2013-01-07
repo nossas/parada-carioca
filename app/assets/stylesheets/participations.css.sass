@@ -1,0 +1,43 @@
+.participations.show
+  form.edit_user
+    +grid(6)
+    +last
+  form.moip_checkout_form
+    +grid(12)
+  form.moip_checkout_form
+    text-align: center
+    margin-top: 2em
+  .checkout_list
+    margin-bottom: 2em
+    li
+      border: none
+      padding: 0
+      &:hover
+        background: none
+      .date
+        font-size: 1.5em
+      .participations
+        float: none
+        display: inline-block
+        margin-top: 0
+        strong
+          display: inline
+      span
+        margin-right: 1em
+  h2
+    margin-bottom: 1em
+  small
+    display: block
+  p
+    margin-bottom: 1em
+  form.edit_user
+    text-align: center
+    input[type='text']
+      font-size: 1.5em
+      width: 200px
+      vertical-align: middle
+      margin-right: 1em
+    label
+      display: none
+    input[type='submit']
+      font-size: .8em

@@ -17,7 +17,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity.guide = current_user
     create! do |success,failure|
-      success.html { edit_activity_path(@activity, anchor: :events) }
+      success.html { redirect_to edit_activity_path(@activity, anchor: :events) }
       failure.html { render :new }
     end
   end

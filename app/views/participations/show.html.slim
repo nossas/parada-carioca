@@ -1,13 +1,23 @@
 section
   .row
-    .box= render @participation.event
+    h2 Confirme a sua Data
+    ul.checkout_list.box
+      = link_to @participation.event.activity.name, @participation.event.activity
+      = render @participation.event
   .row
     = form_for current_user, :remote => true do |form|
-      = form.label :phone
-      = form.text_field :phone
-      = form.submit "Atualizar Telefone", class: :btn
+      .box
+        .title.icon-phone
+          strong Adicionar telefone 
+          | (caso o guia precise entrar em contato)
+        = form.label :phone
+        p
+          = form.text_field :phone
+          = form.submit "Salvar Telefone", :class => "btn_lightgray"
+        small Seu telefone estará protegido e não será utilizado para nenhum outro fim.
+        small O telefone será salvo em seu perfil para futuros agendamentos.
   .row
-    = form_tag "https://www.moip.com.br/PagamentoMoIP.do", :method => :post do
+    = form_tag "https://www.moip.com.br/PagamentoMoIP.do", :method => :post, :class => "moip_checkout_form" do
       = hidden_field "id_carteira", :value => "meurio123"
       = hidden_field "valor", :value => @participation.event.price
       = hidden_field "nome", :value => @participation.event.activity.name
