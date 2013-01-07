@@ -11,5 +11,5 @@ Feature: schedule a date
     And I select a date to schedule
     And I press "Agendar Parada"
     And I fill "Telefone" with "(21)9999-9999"
-    When I press "Atualizar Telefone"
+    When I press "Salvar Telefone"
     Then the Moip checkout button should be enable

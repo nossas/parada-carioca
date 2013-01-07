@@ -14,9 +14,6 @@ section
           = form.submit "Salvar Telefone", :class => "btn_lightgray"
         small Seu telefone estará protegido e não será utilizado para nenhum outro fim.
         small O telefone será salvo em seu perfil para futuros agendamentos.
-      = form.label :phone
-      = form.text_field :phone
-      = form.submit "Atualizar Telefone", class: :btn
   .row
     = form_tag "https://www.moip.com.br/PagamentoMoIP.do", :method => :post, :class => "moip_checkout_form" do
       = hidden_field "id_carteira", :value => "meurio123"
