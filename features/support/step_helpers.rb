@@ -44,3 +44,7 @@ def location location
     raise "I don't know where is #{location}"
   end
 end
+
+def current_path_info
+  current_url.sub(%r{.*?://},'')[%r{[/\?\#].*}] || '/'
+end

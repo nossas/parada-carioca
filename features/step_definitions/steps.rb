@@ -50,7 +50,7 @@ Then /^I should see the participation form$/ do
 end
 
 Then /^I should see the awaiting moderation warning$/ do
-  page.should have_css(".awaiting_moderation_warning")
+  page.should have_css(".alert-success")
 end
 
 Given /^I set the activity location in "(.*?)"$/ do |arg1|
@@ -89,5 +89,5 @@ Then(/^I should see "(.*?)" component$/)        { |arg1| page.should have_css(co
 Then(/^I should not see "(.*?)" component$/)    { |arg1| page.should_not have_css(component(arg1)) }
 When(/^I press "(.*?)"$/)                       { |arg1| click_button arg1 }
 Given(/^I fill "(.*?)" with "(.*?)"$/)          { |arg1, arg2| fill_in(arg1, :with => arg2) }
-Then(/^I should be in "(.*?)"$/)                { |arg1| current_path.should be_== path(arg1) }
+Then(/^I should be in "(.*?)"$/)                { |arg1| current_path_info.should be_== path(arg1) }
 Given(/^I select "(.*?)" as "(.*?)"$/)          { |arg1, arg2| select(arg1, :from => arg2) }
