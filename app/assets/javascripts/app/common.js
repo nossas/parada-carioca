@@ -13,9 +13,17 @@ App = window.App = {
       $(".select2").select2({ width: "300px" });
       $('.tip').qtip();
       $('[rel*=facebox]').facebox();
-
+      this.validateDateField();
     },
-    
+
+    validateDateField: function(){
+      $("#new_event").validate({
+        messages: {
+          "event[date]": {required: "escolha uma data para a realização do evento"}
+        }
+      });
+    },
+
 
     loadOnFaceboxReveal: function(){
       var self = this;
@@ -31,7 +39,7 @@ App = window.App = {
         js = d.createElement(s); js.id = id;
         js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=329953690444851";
         fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+      }(document, 'script', 'facebook-jssdk'));
       !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
     }
   }

@@ -214,6 +214,21 @@ pt-BR:
       short: ! '%d/%m, %H:%M h'
       event: ! '%A, %d de %B de %Y'
     pm: ''
+  flash:
+    actions: 
+      create: 
+        notice: "%{resource_name} criado(a) com sucesso!"
+        error: "Ocorreu um problema ao criar a(o) %{resource_name}. Por favor, cheque se você preencheu corretamente os campos abaixo."
+      update:
+        notice: "%{resource_name} atualizado(a) com sucesso!"
+        error: "Ocorreu um problema ao atualizar. Por favor, cheque se você preencheu corretamente os campos abaixo."
+      edit:
+        notice: "%{resource_name} atualizado(a) com sucesso!"
+        error: "Ocorreu um problema ao atualizar. Por favor, cheque se você preencheu corretamente os campos abaixo."
+      destroy: 
+        notice: "%{resource_name} removido(a) com sucesso!"
+        error: "Ocorreu um problema ao tentar excluir a(o) %{resource_name}"
+
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
     errors:

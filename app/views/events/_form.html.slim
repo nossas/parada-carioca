@@ -4,7 +4,7 @@
     = form.text_field :date, :class => "datepicker required"
   .field
     = form.label :price
-    = form.text_field :price, :maxlength => 10, :value => @activity.price, class: 'price'
+    = form.text_field :price, :maxlength => 10, class: 'price'
   .field
     = form.label :minimum_attendees
     = form.select :minimum_attendees, (1..25).to_a
@@ -16,4 +16,4 @@
     = form.select :duration, (1..24).to_a
     | horas
   hr
-  .field= form.submit
+  .field= form.submit class: :btn

@@ -16,10 +16,16 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity.guide = current_user
-    create! { edit_activity_path(@activity, anchor: :events) }
+    create! do |success,failure|
+      success.html { edit_activity_path(@activity, anchor: :events) }
+      failure.html { render :new }
+    end
   end
 
   def update
-    update! { edit_activity_path(@activity, anchor: :info) }
+    update! do |success, failure|
+      success.html {  redirect_to edit_activity_path(@activity, anchor: :info) }
+      failure.html {  redirect_to edit_activity_path(@activity, anchor: :info), alert: t('flash.actions.update.error') }
+    end
   end
 end

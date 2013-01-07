@@ -68,7 +68,7 @@ Given /^I fill "(.*?)" with next week$/ do |arg1|
 end
 
 Then /^I should see the created event message$/ do
-  page.should have_css(".event_created_notice")
+  page.should have_css(".alert-success")
 end
 
 Given /^I select a date to schedule$/ do

@@ -146,7 +146,7 @@ p
     &:before
       margin-right: .3em
 
-.btn, input[type='submit'], button
+.btn
   +btn($pink)
 
 .btn_fb
@@ -311,10 +311,19 @@ li.event
   span.date, span.icon-money
     font-weight: bold
   span
-    font-size: .8em
+    font-size: .9em
     padding-right: 1em
     &:before
       margin-right: .4em
+  span.participations
+    float: right
+    margin-top: -.4em
+    font-size: .6em
+  span.participations strong
+    display: block
+    text-align: center
+    font-size: 1.8em
+
   span.actions
     float: right 
     display: inline-block
@@ -330,7 +339,4 @@ li.event
     margin-right: .2em
   &:hover
     background: lighten(green, 70%) 
-  span
-    display: inline-block
-    &.date
-      width: 40%
+
