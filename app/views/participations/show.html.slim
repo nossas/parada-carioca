@@ -17,12 +17,12 @@ section
         small Seu telefone estará protegido e não será utilizado para nenhum outro fim.
         small O telefone será salvo em seu perfil para futuros agendamentos.
   .row
-    = form_tag "https://www.moip.com.br/PagamentoMoIP.do", :method => :post, :class => "moip_checkout_form" do
-      = hidden_field "id_carteira", :value => "meurio123"
-      = hidden_field "valor", :value => @participation.event.price
-      = hidden_field "nome", :value => @participation.event.activity.name
-      = hidden_field "id_transacao", :value => @participation.id
-      = hidden_field "pagador_nome", :value => @participation.user.name
-      = hidden_field "pagador_email", :value => @participation.user.email
-      = hidden_field "url_retorno", :value => user_participations_path(current_user)
+    = form_tag ENV['MOIP_URL'], :method => :post, :class => "moip_checkout_form" do
+      = hidden_field "moip", "id_carteira", :name => "id_carteira", :value => ENV['MOIP_ID']
+      = hidden_field "moip", "valor", :name => "valor", :value => sprintf( "%0.02f", @participation.event.price).delete(".")
+      = hidden_field "moip", "nome", :name => "nome", :value => "[Parada Carioca] #{@participation.event.activity.name}"
+      = hidden_field "moip", "id_transacao", :name => "id_transacao", :value => @participation.id
+      = hidden_field "moip", "pagador_nome", :name => "pagador_nome", :value => @participation.user.name
+      = hidden_field "moip", "pagador_email", :name => "pagador_email", :value => @participation.user.email
+      = hidden_field "moip", "url_retorno", :name => "url_retorno", :value => user_participations_url(current_user)
       = submit_tag "Finalizar Pagamento com Moip", :disabled => current_user.phone.blank?, :class => "moip_checkout btn"
