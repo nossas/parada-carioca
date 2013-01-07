@@ -4,7 +4,7 @@ section
       h1= @activity.name
       span.icon-location= @activity.address
       - if !@activity.minimum_attendees.nil?
-          span.icon-people= t 'activity.attendees', min: @activity.minimum_attendees, max: @activity.maximum_attendees 
+          span.icon-people= t 'activity.event.attendees', min: @activity.minimum_attendees, max: @activity.maximum_attendees 
       - if !@activity.maximum_attendees.nil?
         span.icon-clock #{@activity.duration} horas
     .activity_price
