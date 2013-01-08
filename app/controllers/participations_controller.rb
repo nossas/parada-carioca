@@ -6,4 +6,11 @@ class ParticipationsController < ApplicationController
     @participation.user = current_user
     create!
   end
+
+  def moip_callback
+    @participation = Participation.find_by_secret(params["id_transacao"])
+    @participation.update_attribute :moip_status, params["status_pagamento"]
+    @participation.update_attribute :moip_id, params["cod_moip"]
+    render :status => 200, :nothing => true
+  end
 end

@@ -8,6 +8,7 @@ ParadaCarioca::Application.routes.draw do
   end
   
   resources :participations, only: [:create, :show]
+  post "moip_callback", :to => "participations#moip_callback", :as => "moip_callback"
   
   resources :users, only: [:update] do
     resources :participations, only: [:index]

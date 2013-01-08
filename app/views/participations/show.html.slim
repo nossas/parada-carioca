@@ -21,7 +21,7 @@ section
       = hidden_field "moip", "id_carteira", :name => "id_carteira", :value => ENV['MOIP_ID']
       = hidden_field "moip", "valor", :name => "valor", :value => sprintf( "%0.02f", @participation.event.price).delete(".")
       = hidden_field "moip", "nome", :name => "nome", :value => "[Parada Carioca] #{@participation.event.activity.name}"
-      = hidden_field "moip", "id_transacao", :name => "id_transacao", :value => @participation.id
+      = hidden_field "moip", "id_transacao", :name => "id_transacao", :value => @participation.secret
       = hidden_field "moip", "pagador_nome", :name => "pagador_nome", :value => @participation.user.name
       = hidden_field "moip", "pagador_email", :name => "pagador_email", :value => @participation.user.email
       = hidden_field "moip", "url_retorno", :name => "url_retorno", :value => user_participations_url(current_user)

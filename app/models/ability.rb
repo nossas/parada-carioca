@@ -5,6 +5,7 @@ class Ability
     can :read, Activity
     can :read, Participation
     can :search, Activity
+    can :moip_callback, Participation
 
     if user
       can :create, Activity
