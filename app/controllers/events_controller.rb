@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   inherit_resources
+  load_and_authorize_resource
   belongs_to :activity
   respond_to :json, only: [:index]
 
@@ -21,7 +22,9 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    destroy! { edit_activity_path(@activity, anchor: :events) }
+    destroy! do |success, failure|
+      success.html { redirect_to edit_activity_path(@activity, :anchor => "events"), :flash => {:notice => "Sua data foi cancelada"} }
+    end
   end
 
   def update

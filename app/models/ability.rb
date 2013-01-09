@@ -13,7 +13,7 @@ class Ability
       can :create, Participation
       can :manage, User, :id => user.id
       can :manage, Event do |event|
-        event.activity.user = user
+        event.activity.user_id = user.id
       end
     end
   end

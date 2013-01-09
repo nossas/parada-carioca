@@ -3,4 +3,8 @@ li.event
   span.icon-clock     = t 'activity.event.duration', hour: event.duration
   span.icon-people    = t 'activity.event.attendees', min: event.minimum_attendees, max: event.maximum_attendees
   span.icon-money     = number_to_currency event.price
-  span.participations = t 'activity.event.participations_html', min: event.participations.count, max: event.maximum_attendees
+  span.participations = t 'activity.event.participations_html', min: event.attendees.count, max: event.maximum_attendees
+  - if event.attendees.empty?
+    span.cancel = link_to "", activity_event_path(event.activity, event), :method => :delete, :class => "icon-close tip", :title => "Cancelar data"
+  - else
+    span.cancel = link_to "", activity_event_path(event.activity, event), :method => :delete, :class => "icon-close tip", :title => "Cancelar data", :confirm => "Existem pessoas que agendaram esta data, eles serão avisados sobre o cancelamento. Deseja continuar?"
