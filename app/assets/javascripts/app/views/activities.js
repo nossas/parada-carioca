@@ -84,6 +84,13 @@ App.Activities = {
         infowindow.open(map);
       });
     }
+  }),
+  Show: Backbone.View.extend({
+    el: 'body',
+    initialize: function(){
+      $("form.new_participation input[type='submit']").hide();
+      $("form.new_participation input[type='radio']").change(function(){ $("form.new_participation input[type='submit']").show(); });
+    }
   })
 };
 App.Activities.Router = Backbone.Router.extend({
