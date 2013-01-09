@@ -180,7 +180,8 @@ CREATE TABLE participations (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     moip_status character varying(255),
-    secret character varying(255)
+    secret character varying(255),
+    moip_id character varying(255)
 );
 
 
@@ -437,3 +438,5 @@ INSERT INTO schema_migrations (version) VALUES ('20121217171222');
 INSERT INTO schema_migrations (version) VALUES ('20130108170941');
 
 INSERT INTO schema_migrations (version) VALUES ('20130108181358');
+
+INSERT INTO schema_migrations (version) VALUES ('20130109190540');

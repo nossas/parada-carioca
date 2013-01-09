@@ -42,3 +42,7 @@ Given /^there is an activity created by me with (\d+) event$/ do |arg1|
   @activity = Activity.make! :guide => User.find_by_email("nicolas@engage.is")
   arg1.to_i.times { Event.make! :activity => @activity }
 end
+
+Given /^there is an activity created by me$/ do
+  @activity = Activity.make! :guide => User.find_by_email("nicolas@engage.is")
+end

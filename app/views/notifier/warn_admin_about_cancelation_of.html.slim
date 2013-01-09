@@ -1,0 +1,7 @@
+p A atividade #{@event.activity.name} foi cancelada.
+p As seguintes transações deverão ser reembolsadas:
+table
+  - @event.participations.each do |participation|
+    tr
+      td= participation.moip_id
+      td= participation.user.name

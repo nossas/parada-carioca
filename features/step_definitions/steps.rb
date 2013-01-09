@@ -87,6 +87,14 @@ Then /^I should see (\d+) schedules$/ do |arg1|
   page.should have_selector(".participation", :count => arg1.to_i)
 end
 
+Given /^there is (\d+) attendee in this event$/ do |arg1|
+  Participation.make! :event => @event, :user => User.make!, :moip_status => "4"
+end
+
+Then /^the system should send (\d+) emails$/ do |arg1|
+  ActionMailer::Base.deliveries.should have(arg1.to_i).emails
+end
+
 Then(/^show me the page$/)                      { save_and_open_page }
 When(/^I go to "(.*?)"$/)                       { |arg1| visit path(arg1) }
 Then(/^the first activity should be "(.*?)"$/)  { |arg1| page.should have_css('ol.activities li:first-child', :text => arg1) }

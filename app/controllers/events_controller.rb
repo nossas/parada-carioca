@@ -5,6 +5,8 @@ class EventsController < ApplicationController
   respond_to :json, only: [:index]
 
   before_filter only: [:index] { @event = Event.new }
+  before_filter only: [:destroy] { Notifier.warn_attendees_about_cancellation_of(Event.find(params[:id])).deliver if Event.find(params[:id]).attendees.any? }
+  before_filter only: [:destroy] { Notifier.warn_admin_about_cancellation_of(Event.find(params[:id])).deliver if Event.find(params[:id]).attendees.any? }
 
   def new
     new! { return render partial: 'form', layout: nil }
