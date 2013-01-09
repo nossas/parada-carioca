@@ -7,9 +7,8 @@
       - else
         .user_name_and_avatar.user_panel
           = image_tag current_user.avatar
-          = link_to current_user.name, ''
-          = link_to t('login.home'), root_path
-          = link_to "▾", '#/'
+          span= current_user.name
+          = link_to "Agendamentos", user_participations_path(current_user)
 
 .navigation
   .row
