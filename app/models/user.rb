@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :activities
   has_many :reviews, :through => :activities
+  has_many :participations
 
   validates :email, :first_name, :presence => true
 

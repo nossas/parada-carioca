@@ -1,0 +1,8 @@
+section
+  .row
+    h1 Paradas que Você Agendou
+    .box
+      - if @user.participations.empty?
+        | Pelo visto você é novo por aqui, nenhum agendamento encontrado
+      - else
+        = render @user.participations

@@ -79,6 +79,14 @@ Then /^the Moip checkout button should be enable$/ do
   page.should_not have_css(".moip_checkout[disabled='disabled']")
 end
 
+Given /^I scheduled (\d+) activities$/ do |arg1|
+  arg1.to_i.times { Participation.make! :user => User.find_by_email("nicolas@engage.is") }
+end
+
+Then /^I should see (\d+) schedules$/ do |arg1|
+  page.should have_selector(".participation", :count => arg1.to_i)
+end
+
 Then(/^show me the page$/)                      { save_and_open_page }
 When(/^I go to "(.*?)"$/)                       { |arg1| visit path(arg1) }
 Then(/^the first activity should be "(.*?)"$/)  { |arg1| page.should have_css('ol.activities li:first-child', :text => arg1) }

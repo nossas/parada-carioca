@@ -41,3 +41,27 @@
       display: none
     input[type='submit']
       font-size: .8em
+
+.participations.index
+  h1
+    margin: 1em 0 .5em 0
+  .participation
+    margin-bottom: 1em
+    padding-bottom: 1em
+    border-bottom: 1px solid lightgray
+    &:last-child
+      margin-bottom: 0
+      padding-bottom: 0
+      border-bottom: 0
+    span.paid
+      color: $green
+    span.not_paid
+      color: red
+  .event
+    border: none
+    list-style: none
+    padding: 0
+    strong
+      display: inline
+    &:hover
+      background: none

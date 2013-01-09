@@ -6,6 +6,7 @@ def path path
   return edit_activity_path(Activity.order(:id).last, anchor: :events) if path == "the events page of the new activity"
   return new_activity_path if path == "the new activity page"
   return edit_activity_path(Activity.order(:id).first, anchor: :events) if path == "the events page of this activity"
+  return user_participations_path(User.find_by_email("nicolas@engage.is")) if path == "my schedules page"
   return "/users/me/participations" if path == "my activities page"
   raise "I don't know #{path}"
 end

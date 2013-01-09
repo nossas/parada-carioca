@@ -1,6 +1,7 @@
 class ParticipationsController < ApplicationController
   inherit_resources
   load_and_authorize_resource
+  belongs_to :user, :optional => true
 
   def create
     @participation.user = current_user

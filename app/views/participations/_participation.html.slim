@@ -1,0 +1,5 @@
+.participation
+  = link_to participation.event.activity.name, participation.event.activity
+  |  - 
+  = participation.paid? ? content_tag(:span, "Pago", :class => "paid") : content_tag(:span, "Aguardando pagamento", :class => "not_paid")
+  = render participation.event
