@@ -6,7 +6,7 @@ end
 
 Given /^there is an activity called "(.*?)" with (\d+) attendees$/ do |arg1, arg2|
   event = Event.make! :activity => Activity.make!(:name => arg1)
-  arg2.to_i.times { event.attendees << User.make! }
+  arg2.to_i.times { Participation.make! :user => User.make!, :event => event, :moip_status => "4" }
 end
 
 Given /^there is an activity called "(.*?)" created (\d+) days ago$/ do |arg1, arg2|
@@ -30,7 +30,7 @@ end
 
 Given /^there is an activity in "(.*?)" with (\d+) attendees$/ do |arg1, arg2|
   event = Event.make! :activity => Activity.make!(:neighborhood => Neighborhood.find_by_name(arg1))
-  arg2.to_i.times { event.attendees << User.make! }
+  arg2.to_i.times { Participation.make! :user => User.make!, :event => event, :moip_status => "4" }
 end
 
 Given /^there is an activity with (\d+) [event|events]+$/ do |arg1|

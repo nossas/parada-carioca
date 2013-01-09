@@ -3,7 +3,6 @@ class Event < ActiveRecord::Base
   
   belongs_to  :activity
   has_many    :participations
-  has_many    :attendees, :through => :participations, :source => :user
   
   scope :upcoming,  where("date >= ?", Time.now)
   scope :available, where("(SELECT count(*) FROM participations WHERE participations.event_id = events.id) < events.maximum_attendees")
@@ -23,15 +22,19 @@ class Event < ActiveRecord::Base
 
 
   def remaining_to_maximum
-    maximum_attendees - participations.count
+    maximum_attendees - attendees.count
   end
 
   def remaining_to_minimum
-    minimum_attendees - participations.count
+    minimum_attendees - attendees.count
   end
   
   def minimum_reached?
-    participations.count >= minimum_attendees
+    attendees.count >= minimum_attendees
+  end
+
+  def attendees
+    User.joins(:participations).where("participations.user_id = users.id AND participations.event_id = ? AND participations.moip_status = '4'", self.id)
   end
 
   private

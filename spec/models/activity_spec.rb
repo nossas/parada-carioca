@@ -13,9 +13,9 @@ describe Activity do
       let(:event1)       { Event.make! :activity => activity1 }
       let(:event2)       { Event.make! :activity => activity2 }
       let(:event3)       { Event.make! :activity => activity3 }
-      before { 2.times { event1.attendees << User.make! } }
-      before { 4.times { event2.attendees << User.make! } }
-      before { 3.times { event3.attendees << User.make! } }
+      before { 2.times { Participation.make! :user => User.make!, :event => event1, :moip_status => "4" } }
+      before { 4.times { Participation.make! :user => User.make!, :event => event2, :moip_status => "4" } }
+      before { 3.times { Participation.make! :user => User.make!, :event => event3, :moip_status => "4" } }
       it { Activity.by_popularity.should_not be_empty }
       it("should order activities by most popular") { Activity.by_popularity.should be_== [activity2, activity3, activity1] }
     end
