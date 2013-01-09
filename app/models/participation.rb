@@ -3,6 +3,8 @@ class Participation < ActiveRecord::Base
 
   belongs_to :event
   belongs_to :user
+  
+  scope :by_date, order("(SELECT date FROM events WHERE events.id = event_id)")
 
   validates :event_id, :user_id, :secret, :presence => true
   validates :secret, :uniqueness => true

@@ -5,4 +5,4 @@ section
       - if @user.participations.empty?
         | Pelo visto você é novo por aqui, nenhum agendamento encontrado
       - else
-        = render @user.participations
+        = render @user.participations.by_date
