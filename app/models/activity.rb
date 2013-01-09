@@ -1,6 +1,6 @@
 class Activity < ActiveRecord::Base
   attr_accessible :address, :description, :name, :price, :image, :user_id, :latitude, 
-    :longitude, :neighborhood, :neighborhood_id, :included, :requirements, :cancellation_reason
+    :longitude, :neighborhood, :neighborhood_id, :included, :requirements, :cancellation_reason, :active
 
   has_many :events
   has_many :reviews
@@ -9,6 +9,7 @@ class Activity < ActiveRecord::Base
 
   scope :by_most_recent,  order("created_at DESC")
   scope :by_popularity,   order("(SELECT count(*) FROM participations JOIN events ON events.activity_id = activities.id WHERE participations.event_id = events.id) DESC")
+  scope :active,          where(:active => true)
 
   validates :address, :description, :name, :price, :user_id, :latitude, :longitude, :neighborhood_id, :image, :presence => true
   

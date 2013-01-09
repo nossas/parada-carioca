@@ -46,3 +46,7 @@ end
 Given /^there is an activity created by me$/ do
   @activity = Activity.make! :guide => User.find_by_email("nicolas@engage.is")
 end
+
+Given /^there is a deactivated activity called "(.*?)"$/ do |arg1|
+  @activity = Activity.make! :active => false
+end

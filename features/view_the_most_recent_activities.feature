@@ -11,3 +11,8 @@ Feature: View the most recent activities
     Then the 1st most recent activity should be "Velejada na Baía de Guanabara"
     And the 2nd most recent activity should be "Aula de forró na praça São Salvador"
     And the 3rd most recent activity should be "Feijoada da Portela"
+
+  Scenario: when there is a deactivated activity
+    Given there is a deactivated activity called "Aula de forró na praça São Salvador"
+    When I go to "the homepage"
+    Then I should not see "Aula de forró na praça São Salvador"

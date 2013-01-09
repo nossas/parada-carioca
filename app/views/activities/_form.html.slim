@@ -43,6 +43,9 @@
     br
     = form.text_field :price, :maxlength => 10, class: 'price', as: :money
     span.error= @activity.errors[:price].join(", ")
+  .field
+    = form.check_box :active
+    = form.label :active
   hr
   .field
     = form.submit class: :btn

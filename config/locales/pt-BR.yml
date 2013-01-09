@@ -250,6 +250,7 @@ pt-BR:
         price: "Preço Médio por Pessoa (R$)"
         image: "Foto"
         neighborhood_id: "Bairro"
+        active: "Ativada"
       event:
         date: "Data e Hora de Início"
         minimum_attendees: "Mínimo de Participantes"
