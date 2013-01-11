@@ -3,6 +3,7 @@
 def path path
   return root_path if path == "the homepage"
   return activity_path(@activity) if path == "this activity page"
+  return activity_path(@activity, :anchor => "new_review_btn") if path == "the reviews of this activity page"
   return edit_activity_path(Activity.order(:id).last, anchor: :events) if path == "the events page of the new activity"
   return new_activity_path if path == "the new activity page"
   return edit_activity_path(Activity.order(:id).first, anchor: :events) if path == "the events page of this activity"

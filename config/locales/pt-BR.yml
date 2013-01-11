@@ -259,6 +259,8 @@ pt-BR:
         price: "Preço por Pessoa (R$)"
       user:
         phone: "Telefone"
+      review:
+        description: "O que achou da parada? E do guia?"
   review:
     one: avaliação
     other: avaliações

@@ -35,6 +35,14 @@ section
           = simple_format @activity.cancellation_reason
       .activity_reviews_list
         span.icon-review #{content_tag :span, @activity.reviews.count} #{t('review', :count => @activity.reviews.count)}
+        - if can? :create, Review
+          #new_review_btn.new_review_btn= link_to "escrever avaliação", "#new_review"
+        = form_for [@activity, Review.new], :html => {:class => "box"} do |form|
+          = form.label :description
+          = form.text_area :description
+          = form.submit "Enviar Avaliação", :class => "btn"
+        - if flash[:new_review]
+          .alert.alert-success= flash[:new_review]
         ul= render @activity.reviews.order("created_at DESC")
 
     .activity_panel

@@ -90,6 +90,16 @@ App.Activities = {
     initialize: function(){
       $("form.new_participation input[type='submit']").hide();
       $("form.new_participation input[type='radio']").change(function(){ $("form.new_participation input[type='submit']").show(); });
+      $("form#new_review").hide();
+      $("a[href='#new_review']").click(function(){$("form#new_review").slideDown(); return false;});
+      $("form#new_review input[type='submit']").attr("disabled", "disabled")
+      $("#review_description").keyup(function(){
+        if($("#review_description").val().length > 0){
+          $("form#new_review input[type='submit']").removeAttr("disabled");
+        } else {
+          $("form#new_review input[type='submit']").attr("disabled", "disabled")
+        }
+      });
     }
   })
 };

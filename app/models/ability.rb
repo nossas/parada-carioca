@@ -17,6 +17,7 @@ class Ability
       can :manage, Event do |event|
         event.activity.user_id = user.id
       end
+      can :create, Review
     end
   end
 end

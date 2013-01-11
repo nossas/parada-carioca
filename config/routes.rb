@@ -5,6 +5,7 @@ ParadaCarioca::Application.routes.draw do
 
   resources :activities, except: [:destroy] do
     resources :events
+    resources :reviews
   end
   
   resources :participations, only: [:create, :show]
