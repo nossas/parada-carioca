@@ -9,6 +9,7 @@
           = image_tag current_user.avatar
           span= current_user.name
           = link_to "Agendamentos", user_participations_path(current_user)
+          = link_to "Minhas Paradas", current_user
 
 .navigation
   .row

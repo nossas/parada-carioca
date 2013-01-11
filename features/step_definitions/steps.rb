@@ -95,6 +95,10 @@ Then /^the system should send (\d+) emails$/ do |arg1|
   ActionMailer::Base.deliveries.should have(arg1.to_i).emails
 end
 
+Then /^I should see my activity$/ do
+  page.should have_css("li.activity")
+end
+
 Then(/^show me the page$/)                      { save_and_open_page }
 When(/^I go to "(.*?)"$/)                       { |arg1| visit path(arg1) }
 Then(/^the first activity should be "(.*?)"$/)  { |arg1| page.should have_css('ol.activities li:first-child', :text => arg1) }

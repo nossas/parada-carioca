@@ -1,0 +1,8 @@
+section
+  .row
+    h2 Minhas Paradas
+    - if current_user.activities.empty?
+      .empty.box
+        p Você ainda não organizou nenhuma parada, comece agora!
+        = link_to "Organize a sua Primeira Parada!", new_activity_path, :class => "btn"
+    ol.activities= render current_user.activities

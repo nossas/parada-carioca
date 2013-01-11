@@ -201,13 +201,15 @@ input.btn_lightgray
       color: black
       font-weight: normal
     span, a
-      &:after
-        content: " | "
-        padding-left: .4em
-        display: inline-block
+      border-right: 1px solid lightgray
+      padding-right: 10px
+      margin-right: 10px
+      &:last-child
+        border-right: 0
+        padding-right: 0
+        margin-right: 0
     a
       color: lighten(gray, 18%)
-      padding: 0 .3em
       &:hover
         color: black
         text-decoration: none
@@ -347,3 +349,44 @@ li.event
     float: left
     font-size: 2.4em
     margin-right: .2em
+
+section.featured_activities, ul.search_result, ul.nearby_result, body.users.show
+  li.activity         
+    +grid(4)
+    &:last-child
+      +last
+    margin-bottom: 1em
+    .image
+      float: left
+      img
+        float: left
+        width: 100%
+    .about
+      background: white
+      margin: 0 1px 2px 1px
+      overflow: hidden
+      padding: .5em
+      +box-shadow(lightgray 0 1px 2px)
+    .user_name
+      color: gray
+      overflow: hidden
+      border-bottom: 1px solid lighten(lightgray, 10%)
+      padding-bottom: .5em
+      margin-bottom: .5em
+      img
+        float: left
+        margin: 0 .5em .5em 0
+    .info
+      line-height: 20px
+      overflow: hidden
+      .address
+        float: left
+        color: gray
+        font-size: .8em
+        &:before
+          color: $pink
+      .price
+        float: right
+
+.empty
+  text-align: center

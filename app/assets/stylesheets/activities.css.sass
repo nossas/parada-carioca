@@ -225,44 +225,6 @@ body.activities.new, body.activities.create, body.activities.edit
     span.cancel
       display: inline
 
-section.featured_activities, ul.search_result, ul.nearby_result
-  li.activity         
-    +grid(4)
-    &:last-child
-      +last
-    margin-bottom: 1em
-    .image
-      float: left
-      img
-        float: left
-        width: 100%
-    .about
-      background: white
-      margin: 0 1px 2px 1px
-      overflow: hidden
-      padding: .5em
-      +box-shadow(lightgray 0 1px 2px)
-    .user_name
-      color: gray
-      overflow: hidden
-      border-bottom: 1px solid lighten(lightgray, 10%)
-      padding-bottom: .5em
-      margin-bottom: .5em
-      img
-        float: left
-        margin: 0 .5em .5em 0
-    .info
-      line-height: 20px
-      overflow: hidden
-      .address
-        float: left
-        color: gray
-        font-size: .8em
-        &:before
-          color: $pink
-      .price
-        float: right
-
 section.search
   padding-top: 2em
   padding-bottom: 2em
