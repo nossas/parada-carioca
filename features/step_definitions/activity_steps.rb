@@ -50,3 +50,8 @@ end
 Given /^there is a deactivated activity called "(.*?)"$/ do |arg1|
   @activity = Activity.make! :active => false
 end
+
+Given /^there is an activity with (\d+) event costing R\$ (\d+)$/ do |arg1, arg2|
+  @activity = Activity.make!
+  Event.make! :activity => @activity, :price => arg2.to_i
+end
