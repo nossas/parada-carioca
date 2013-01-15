@@ -19,8 +19,9 @@ section
     = form_tag ENV['MOIP_URL'], :method => :post, :class => "moip_checkout_form" do
       .donation
         = check_box_tag "donate_checkbox", "donate_checkbox", :checked => true
-        = label_tag "donate_select", "Adicionar doação de"
+        = label_tag "donate_select", "Adicionar doação de "
         = select "donate_select", "donate_select", [["R$ 3,00", "300"], ["R$ 5,00", "500"], ["R$ 10,00", "1000"], ["R$ 50,00", "5000"]], {}, {:id => "donate_select"}
+        |  ao Parada Carioca
       = hidden_field "moip", "id_carteira", :name => "id_carteira", :value => ENV['MOIP_ID']
       = hidden_field "moip", "valor", :name => "valor", :value => sprintf( "%0.02f", @participation.event.price).delete(".")
       = hidden_field "moip", "valor_original", :name => "valor_original", :value => sprintf( "%0.02f", @participation.event.price).delete(".")
