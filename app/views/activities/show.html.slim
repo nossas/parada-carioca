@@ -15,6 +15,10 @@ section
       = t('review', :count => @activity.reviews.count)
 
   .row
+    - if current_user == @activity.guide
+      .activity_tab
+        = link_to "A Parada", "#activity_info", :class => "selected"
+        = link_to "Quem Agendou", "#activity_bookings"
     .activity_info
       = image_tag @activity.image, :class => "activity_cover"
       .activity_share
@@ -44,6 +48,24 @@ section
         - if flash[:new_review]
           .alert.alert-success= flash[:new_review]
         ul= render @activity.reviews.order("created_at DESC")
+    - if current_user == @activity.guide
+      .activity_bookings
+        - @activity.events.upcoming.each do |event|
+          .box
+            .event_date
+              = l event.date
+              |  | 
+              - if event.minimum_reached?
+                span.confirmed confirmado
+              - else
+                span.missing= "faltam +#{event.remaining_to_minimum}"
+            - event.attendees.each do |attendee|
+              .booking
+                = image_tag attendee.avatar
+                = attendee.name
+        - if @activity.events.empty?
+          .box
+            .empty Esta atividade não possui datas futuras para serem agendadas
 
     .activity_panel
       

@@ -103,6 +103,18 @@ Then /^the total amount should be R\$ (\d+)$/ do |arg1|
   page.should have_css("#moip_valor", :value => "#{arg1}00")
 end
 
+Given /^there is a booking of "(.*?)" to that event$/ do |arg1|
+  Participation.make! :event => @event, :user => User.make!(:first_name => arg1), :moip_status => "4"
+end
+
+Then /^I should see "(.*?)" in the attendees list$/ do |arg1|
+  page.should have_css(".booking", :text => arg1)
+end
+
+Then /^I should not see the activity tab$/ do
+  page.should_not have_css(".activity_tab")
+end
+
 Then(/^show me the page$/)                      { save_and_open_page }
 When(/^I go to "(.*?)"$/)                       { |arg1| visit path(arg1) }
 Then(/^the first activity should be "(.*?)"$/)  { |arg1| page.should have_css('ol.activities li:first-child', :text => arg1) }

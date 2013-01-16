@@ -100,6 +100,21 @@ App.Activities = {
           $("form#new_review input[type='submit']").attr("disabled", "disabled")
         }
       });
+      $(".activity_bookings").hide();
+      $("a[href='#activity_bookings']").click(function(){
+        $("a[href='#activity_bookings']").addClass("selected");
+        $("a[href='#activity_info']").removeClass("selected");
+        $(".activity_bookings").fadeIn();
+        $(".activity_info").hide();
+        return false;
+      });
+      $("a[href='#activity_info']").click(function(){
+        $("a[href='#activity_bookings']").removeClass("selected");
+        $("a[href='#activity_info']").addClass("selected");
+        $(".activity_bookings").hide();
+        $(".activity_info").fadeIn();
+        return false;
+      });
     }
   })
 };

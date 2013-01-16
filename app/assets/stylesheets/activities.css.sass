@@ -84,7 +84,7 @@ body.activities.search
 body.activities.show
   .content
     padding-top: 1.5em
-  .activity_name, .activity_info
+  .activity_name, .activity_info, .activity_bookings
     +grid(8)
   .activity_price, .activity_reviews
     +grid(2)
@@ -191,6 +191,41 @@ body.activities.show
   .btn.icon-pencil
     display: block
     margin: 0 0 1em 0
+  .activity_tab
+    margin-bottom: 1em
+    a
+      margin: 1px
+      margin-right: 1em
+      padding: .5em
+      display: inline-block
+      color: gray
+      &:hover
+        color: gray
+        text-decoration: none
+    a.selected
+      color: $blue
+      background: white
+      +box-shadow(lightgray 0 1px 2px)
+      +border-radius(3px)
+  .activity_bookings
+    .event_date
+      margin-bottom: 1em
+      span.confirmed, span.missing
+        font-weight: bold
+      span.confirmed
+        color: $green
+      span.missing
+        color: $yellow
+    .booking
+      clear: both
+      color: gray
+      line-height: 30px
+      margin-bottom: .5em
+      &:last-child
+        margin-bottom: 0
+      img
+        width: 30px
+        margin-right: .5em
 
 body.activities.new, body.activities.create
   h1, form
