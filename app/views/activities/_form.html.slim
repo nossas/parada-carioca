@@ -32,16 +32,18 @@
   .field
     = form.label :neighborhood_id
     br
-    = form.select :neighborhood_id, options_from_collection_for_select(Neighborhood.order(:name), "id", "name")
+    = form.select :neighborhood_id, options_from_collection_for_select(Neighborhood.order(:name), "id", "name", @activity.neighborhood_id)
   .field
     = form.label :image
     br
     = form.file_field :image
     span.error= @activity.errors[:image].join(", ")
+    - if @activity.persisted?
+      = image_tag @activity.image
   .field
     = form.label :price
     br
-    = form.text_field :price, :maxlength => 10, class: 'price', as: :money
+    = form.text_field :price, :maxlength => 10, class: 'price', as: :money, :value => @activity.new_record? ? "" : number_to_currency(@activity.price).delete("R$ ")
     span.error= @activity.errors[:price].join(", ")
   .field
     = form.check_box :active
